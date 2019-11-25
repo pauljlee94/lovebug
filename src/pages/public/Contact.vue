@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import LayoutDefault from "../layouts/LayoutDefault.vue"
-import ContactForm from "../components/forms/ContactForm.vue"
+import LayoutDefault from "../../layouts/LayoutDefault.vue";
+import ContactForm from "../../components/forms/ContactForm.vue";
 
 export default {
   name: "Contact",
@@ -17,7 +17,7 @@ export default {
     //data here
   },
   components: { LayoutDefault, ContactForm }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

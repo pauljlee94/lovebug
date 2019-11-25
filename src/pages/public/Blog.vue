@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import LayoutDefault from "../layouts/LayoutDefault.vue"
-import BlogList from "../components/blog/BlogList"
+import LayoutDefault from "../../layouts/LayoutDefault.vue";
+import BlogList from "../../components/blog/BlogList";
 
 export default {
   name: "Blog",
@@ -18,7 +18,7 @@ export default {
     //data here
   },
   components: { LayoutDefault, BlogList }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

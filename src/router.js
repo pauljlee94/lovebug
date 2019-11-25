@@ -3,13 +3,18 @@ import firebase from "firebase"
 
 //Views
 import Router from "vue-router"
-import Home from "./pages/Home.vue"
-import About from "./pages/About.vue"
-import Blog from "./pages/Blog.vue"
-import Contact from "./pages/Contact.vue"
-import Login from "./pages/Login.vue"
-import Admin from "./pages/Admin.vue"
-import NotFound from "./pages/NotFound"
+import Home from "./pages/public/Home.vue"
+import About from "./pages/public/About.vue"
+import Blog from "./pages/public/Blog.vue"
+import Contact from "./pages/public/Contact.vue"
+import Login from "./pages/admin/Login.vue"
+import Admin from "./pages/admin/Admin.vue"
+import AdminBlog from "./pages/admin/AdminBlog.vue"
+import NewBlogPost from "./pages/admin/NewBlogPost.vue"
+import AdminPortfolio from "./pages/admin/AdminPortfolio.vue"
+import AdminSchedule from "./pages/admin/AdminSchedule.vue"
+
+import NotFound from "./pages/public/NotFound"
 
 Vue.use(Router)
 
@@ -52,7 +57,29 @@ const router = new Router({
       component: Admin,
       meta: {
         requiresAuth: true
-      }
+      },
+      children: [
+        {
+          path: "blog",
+          name: "adminBlog",
+          component: AdminBlog
+        },
+        {
+          path: "blog/new",
+          name: "newBlogPost",
+          component: NewBlogPost
+        },
+        {
+          path: "portfolio",
+          name: "adminPortfolio",
+          component: AdminPortfolio
+        },
+        {
+          path: "schedule",
+          name: "adminSchedule",
+          component: AdminSchedule
+        }
+      ]
     }
   ]
 })
@@ -62,7 +89,6 @@ router.beforeEach((to, from, next) => {
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
 
   if (requiresAuth && !currentUser) next("login")
-  //else if (currentUser) next("admin")
   else next()
 })
 

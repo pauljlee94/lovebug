@@ -1,23 +1,21 @@
 <template>
   <layout-default>
-    <div id="home">
-      <h1>Home</h1>
+    <div id="about">
+      <h1>About</h1>
     </div>
   </layout-default>
 </template>
 
 <script>
-import LayoutDefault from "../layouts/LayoutDefault.vue"
+import LayoutDefault from "../../layouts/LayoutDefault.vue";
 
 export default {
-  name: "Home",
+  name: "About",
   props: {
     //data here
   },
-  components: {
-    LayoutDefault
-  }
-}
+  components: { LayoutDefault }
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
