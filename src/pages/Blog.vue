@@ -3,21 +3,21 @@
     <div id="blog">
       <h1>Blog</h1>
 
-      <BlogPost />
+      <BlogList />
     </div>
   </layout-default>
 </template>
 
 <script>
 import LayoutDefault from "../layouts/LayoutDefault.vue"
-import BlogPost from "../components/blog/BlogPost"
+import BlogList from "../components/blog/BlogList"
 
 export default {
   name: "Blog",
   props: {
     //data here
   },
-  components: { LayoutDefault, BlogPost }
+  components: { LayoutDefault, BlogList }
 }
 </script>
 

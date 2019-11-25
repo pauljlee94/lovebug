@@ -22,7 +22,7 @@ export default {
     return {
       email: "",
       password: "",
-      loading: false,
+      //loading: false,
       errorMsg: ""
     }
   },
@@ -37,18 +37,18 @@ export default {
   methods: {
     async login(e) {
       e.preventDefault()
-      this.loading = true
+      //this.loading = true
 
       await firebase
         .auth()
         .signInWithEmailAndPassword(this.email, this.password)
         .then(user => {
           console.log(user)
-          this.loading = false
+          //this.loading = false
           this.$router.replace("admin")
         })
         .catch(error => {
-          this.loading = false
+          //this.loading = false
           this.errorMsg = error.message
         })
     }
