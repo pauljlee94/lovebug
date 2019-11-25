@@ -1,7 +1,7 @@
 <template>
   <layout-default>
     <div id="about">
-      <p>this is an about page</p>
+      <h1>About</h1>
     </div>
   </layout-default>
 </template>
@@ -10,7 +10,7 @@
 import LayoutDefault from "../layouts/LayoutDefault.vue"
 
 export default {
-  name: "Home",
+  name: "About",
   props: {
     //data here
   },

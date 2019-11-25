@@ -1,18 +1,26 @@
 <template>
   <div id="admin">
-    <p>this is an admin page</p>
+    <h1>admin</h1>
+    <button @click="logout">Sign Out</button>
   </div>
 </template>
 
 <script>
+import firebase from "firebase"
+
 export default {
   name: "Admin",
-  props: {
-    //data here
-  },
-  components: {}
+  methods: {
+    logout() {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          this.$router.replace("login")
+        })
+    }
+  }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped></style>
+<style></style>

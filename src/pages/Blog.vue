@@ -1,7 +1,8 @@
 <template>
   <layout-default>
     <div id="blog">
-      <p>Blog</p>
+      <h1>Blog</h1>
+
       <BlogPost />
     </div>
   </layout-default>

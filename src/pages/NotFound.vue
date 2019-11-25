@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: "Home",
+  name: "404",
   props: {
     //data here
   },

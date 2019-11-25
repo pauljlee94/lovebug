@@ -1,22 +1,22 @@
 <template>
   <layout-default>
-    <div id="home">
-      <h1>Home</h1>
+    <div id="contact">
+      <h1>Contact</h1>
+      <ContactForm />
     </div>
   </layout-default>
 </template>
 
 <script>
 import LayoutDefault from "../layouts/LayoutDefault.vue"
+import ContactForm from "../components/forms/ContactForm.vue"
 
 export default {
-  name: "Home",
+  name: "Contact",
   props: {
     //data here
   },
-  components: {
-    LayoutDefault
-  }
+  components: { LayoutDefault, ContactForm }
 }
 </script>
 
