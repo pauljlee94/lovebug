@@ -1,11 +1,15 @@
 <template>
-  <div class="blogCard">
-    <h2 class="postTitle">{{ title }}</h2>
-    <p class="postDate">{{ formattedDate }}</p>
-    <div class="postContent" v-html="content"></div>
-    <button v-if="authenticated" @click="viewPost">EDIT</button>
-    <button v-if="authenticated" @click="deleteBlogPost(id)">DELTE</button>
-  </div>
+  <el-card class="blogCard">
+    <div slot="header" class="clearfix">
+      <h2 class="postTitle">{{ title }}</h2>
+      <p class="postDate">{{ formattedDate }}</p>
+      <el-button v-if="authenticated" @click="viewPost">EDIT</el-button>
+      <el-button v-if="authenticated" @click="deleteBlogPost(id)"
+        >DELTE</el-button
+      >
+    </div>
+    <div v-html="content"></div>
+  </el-card>
 </template>
 
 <script>
