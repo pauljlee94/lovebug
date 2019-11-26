@@ -1,11 +1,11 @@
 <template>
   <div class="scheduler">
     <label for="name">Name</label>
-    <input id="name" type="text" />
+    <input v-model="name" id="name" type="text" />
     <label for="name">Phone</label>
-    <input id="name" type="text" />
+    <input v-model="phone" id="phone" type="text" />
     <label for="name">Email</label>
-    <input id="name" type="text" />
+    <input v-model="email" id="email" type="text" />
     <datepicker v-model="appointmentDate" :disabled-dates="disabledDates" />
     <button @click="updateData">Book Me!</button>
   </div>
@@ -36,7 +36,7 @@ export default {
     const appointmentsRef = db.collection("appointments")
     appointmentsRef.get().then(appointments => {
       appointments.forEach(appointment => {
-        const time = new Date(appointment.data().time.seconds * 1000)
+        const time = new Date(appointment.data().time)
         this.disabledDates.dates.push(time)
       })
     })
@@ -48,7 +48,7 @@ export default {
           name: this.name,
           phone: this.phone,
           email: this.email,
-          time: this.appointmentDate
+          time: new Date(this.appointmentDate).getTime()
         })
         .then(() => console.log("scheduled!" + this.disabledDates.dates))
         .catch(error => {

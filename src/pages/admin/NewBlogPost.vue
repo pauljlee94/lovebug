@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { db } from "../../main";
+import { db } from "../../main"
 
 export default {
   name: "NewBlogPost",
@@ -19,7 +19,7 @@ export default {
       title: "",
       time: "",
       content: ""
-    };
+    }
   },
   methods: {
     savePost() {
@@ -31,12 +31,11 @@ export default {
         })
         .then(() => this.$router.replace("/admin/blog"))
         .catch(error => {
-          console.error(`Error adding document: ${error}`);
-        });
+          console.error(`Error adding document: ${error}`)
+        })
     }
   }
-};
+}
 </script>
 
-<style>
-</style>
+<style></style>
