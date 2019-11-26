@@ -46,6 +46,7 @@ export default {
           //console.log(user)
           //this.loading = false
           this.$router.replace("admin");
+          return user;
         })
         .catch(error => {
           //this.loading = false

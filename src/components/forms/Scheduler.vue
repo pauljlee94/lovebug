@@ -54,10 +54,11 @@ export default {
           time: new Date(this.appointmentDate).getTime()
         })
         .then(() => {
-          console.log("scheduled!" + this.disabledDates.dates);
+          //console.log("scheduled!" + this.disabledDates.dates);
         })
         .catch(error => {
-          console.error(`Error adding document: ${error}`);
+          //console.error(`Error adding document: ${error}`);
+          return error;
         });
     }
   },
