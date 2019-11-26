@@ -10,7 +10,8 @@ import Contact from "./pages/public/Contact.vue"
 import Login from "./pages/admin/Login.vue"
 import Admin from "./pages/admin/Admin.vue"
 import AdminBlog from "./pages/admin/AdminBlog.vue"
-import NewBlogPost from "./pages/admin/NewBlogPost.vue"
+import NewBlogPost from "./components/blog/NewBlogPost.vue"
+import BlogPost from "./components/blog/BlogPost.vue"
 import AdminPortfolio from "./pages/admin/AdminPortfolio.vue"
 import AdminSchedule from "./pages/admin/AdminSchedule.vue"
 
@@ -68,6 +69,11 @@ const router = new Router({
           path: "blog/new",
           name: "newBlogPost",
           component: NewBlogPost
+        },
+        {
+          path: "blog/:id",
+          name: "BlogPost",
+          component: BlogPost
         },
         {
           path: "portfolio",

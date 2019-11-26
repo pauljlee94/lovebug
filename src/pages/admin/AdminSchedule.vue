@@ -4,7 +4,6 @@
     <div v-for="(appointment, index) in appointments" :key="index">
       <h2>{{ appointment.name }}</h2>
       <p>{{ appointment.time }}</p>
-      <p>{{ appointment.phone }}</p>
       <p>{{ appointment.email }}</p>
     </div>
   </div>

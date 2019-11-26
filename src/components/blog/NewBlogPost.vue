@@ -4,13 +4,14 @@
     <label for="blog-title">Title</label>
     <input v-model="title" id="blog-title" type="text" />
     <label for="blog-content">Content</label>
-    <textarea v-model="content" id="blog-content" />
+    <vue-editor id="editor" v-model="content" />
     <button @click="savePost">Add</button>
   </div>
 </template>
 
 <script>
 import { db } from "../../main"
+import { VueEditor } from "vue2-editor"
 
 export default {
   name: "NewBlogPost",
@@ -34,7 +35,8 @@ export default {
           console.error(`Error adding document: ${error}`)
         })
     }
-  }
+  },
+  components: { VueEditor }
 }
 </script>
 

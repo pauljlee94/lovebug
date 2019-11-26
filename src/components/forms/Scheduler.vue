@@ -1,13 +1,16 @@
 <template>
-  <div class="scheduler">
-    <label for="name">Name</label>
-    <input v-model="name" id="name" type="text" />
-    <label for="name">Phone</label>
-    <input v-model="phone" id="phone" type="text" />
-    <label for="name">Email</label>
-    <input v-model="email" id="email" type="text" />
-    <datepicker v-model="appointmentDate" :disabled-dates="disabledDates" />
-    <button @click="updateData">Book Me!</button>
+  <div>
+    <div v-if="!scheduled">
+      <label for="name">Name</label>
+      <input v-model="name" id="name" type="text" />
+      <label for="name">Email</label>
+      <input v-model="email" id="email" type="text" />
+      <datepicker v-model="appointmentDate" :disabled-dates="disabledDates" />
+      <button @click="updateData">Book Me!</button>
+    </div>
+    <div v-else>
+      <h1>Booked!</h1>
+    </div>
   </div>
 </template>
 
@@ -23,8 +26,8 @@ export default {
   data() {
     return {
       name: "",
-      phone: "",
       email: "",
+      scheduled: false,
       appointmentDate: new Date(),
       disabledDates: {
         to: new Date(Date.now() - 86400000),
@@ -43,10 +46,10 @@ export default {
   },
   methods: {
     updateData() {
+      this.scheduled = true
       db.collection("appointments")
         .add({
           name: this.name,
-          phone: this.phone,
           email: this.email,
           time: new Date(this.appointmentDate).getTime()
         })
