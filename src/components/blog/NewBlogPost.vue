@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import { db } from "../../main"
-import { VueEditor } from "vue2-editor"
+import { db } from "../../main";
+import { VueEditor } from "vue2-editor";
 
 export default {
   name: "NewBlogPost",
@@ -20,7 +20,7 @@ export default {
       title: "",
       time: "",
       content: ""
-    }
+    };
   },
   methods: {
     savePost() {
@@ -32,12 +32,13 @@ export default {
         })
         .then(() => this.$router.replace("/admin/blog"))
         .catch(error => {
-          console.error(`Error adding document: ${error}`)
-        })
+          //console.error(`Error adding document: ${error}`)
+          return error;
+        });
     }
   },
   components: { VueEditor }
-}
+};
 </script>
 
 <style></style>
