@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import { db } from "../../main"
-import Datepicker from "vuejs-datepicker"
+import { db } from "../../main";
+import Datepicker from "vuejs-datepicker";
 
 export default {
   name: "Scheduler",
@@ -33,36 +33,38 @@ export default {
         to: new Date(Date.now() - 86400000),
         dates: []
       }
-    }
+    };
   },
   created() {
-    const appointmentsRef = db.collection("appointments")
+    const appointmentsRef = db.collection("appointments");
     appointmentsRef.get().then(appointments => {
       appointments.forEach(appointment => {
-        const time = new Date(appointment.data().time)
-        this.disabledDates.dates.push(time)
-      })
-    })
+        const time = new Date(appointment.data().time);
+        this.disabledDates.dates.push(time);
+      });
+    });
   },
   methods: {
     updateData() {
-      this.scheduled = true
+      this.scheduled = true;
       db.collection("appointments")
         .add({
           name: this.name,
           email: this.email,
           time: new Date(this.appointmentDate).getTime()
         })
-        .then(() => console.log("scheduled!" + this.disabledDates.dates))
-        .catch(error => {
-          console.error(`Error adding document: ${error}`)
+        .then(() => {
+          console.log("scheduled!" + this.disabledDates.dates);
         })
+        .catch(error => {
+          console.error(`Error adding document: ${error}`);
+        });
     }
   },
   components: {
     Datepicker
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

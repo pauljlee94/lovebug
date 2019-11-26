@@ -10,25 +10,24 @@
 </template>
 
 <script>
-import { db } from "../../main"
+import { db } from "../../main";
 
 export default {
   name: "AdminSchedule",
   data() {
     return {
       appointments: []
-    }
+    };
   },
 
   created() {
-    const ref = db.collection("appointments").orderBy("time")
+    const ref = db.collection("appointments").orderBy("time");
     ref.get().then(appointments => {
       appointments.forEach(appointment => {
-        const data = appointment.data()
-        this.appointments.push(data)
-        console.log(this.appointments)
+        const data = appointment.data();
+        this.appointments.push(data);
         this.appointments.forEach(appointment => {
-          const dateObj = new Date(appointment.time)
+          const dateObj = new Date(appointment.time);
           const monthNames = [
             "January",
             "February",
@@ -42,17 +41,17 @@ export default {
             "October",
             "November",
             "December"
-          ]
-          const year = dateObj.getFullYear()
-          const month = dateObj.getMonth()
-          const date = dateObj.getDate()
+          ];
+          const year = dateObj.getFullYear();
+          const month = dateObj.getMonth();
+          const date = dateObj.getDate();
 
-          appointment.time = monthNames[month] + " " + date + " " + year
-        })
-      })
-    })
+          appointment.time = monthNames[month] + " " + date + " " + year;
+        });
+      });
+    });
   }
-}
+};
 </script>
 
 <style></style>

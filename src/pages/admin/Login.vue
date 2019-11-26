@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import firebase from "firebase"
+import firebase from "firebase";
 
 export default {
   name: "login",
@@ -24,36 +24,36 @@ export default {
       password: "",
       //loading: false,
       errorMsg: ""
-    }
+    };
   },
   props: {
     //data here
   },
   components: {},
   beforeMount() {
-    const currentUser = firebase.auth().currentUser
-    if (currentUser) this.$router.replace("admin")
+    const currentUser = firebase.auth().currentUser;
+    if (currentUser) this.$router.replace("admin");
   },
   methods: {
     async login(e) {
-      e.preventDefault()
+      e.preventDefault();
       //this.loading = true
 
       await firebase
         .auth()
         .signInWithEmailAndPassword(this.email, this.password)
         .then(user => {
-          console.log(user)
+          //console.log(user)
           //this.loading = false
-          this.$router.replace("admin")
+          this.$router.replace("admin");
         })
         .catch(error => {
           //this.loading = false
-          this.errorMsg = error.message
-        })
+          this.errorMsg = error.message;
+        });
     }
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

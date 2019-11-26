@@ -41,10 +41,10 @@ export default {
         .doc(id)
         .delete()
         .then(() => {
-          console.log(id, " successfully delted");
+          //console.log(id, " successfully delted");
         })
         .catch(error => {
-          console.error("Error removing document:", error);
+          //console.error("Error removing document:", error);
         });
     }
   },
