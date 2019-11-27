@@ -1,19 +1,4 @@
 <template>
-  <!-- <div class="layout-admin">
-    <nav>
-      <h1>Admin</h1>
-      <a href="/">Home</a>
-      <a href="/admin/blog">Blog</a>
-      <a href="/admin/portfolio">Portfolio</a>
-      <a href="/admin/schedule">Schedule</a>
-      <a href="/admin/blog/new">New Blog Post</a>
-      <a href="/admin/portfolio/new">New Blog Post</a>
-      <button @click="logout">LOG OUT</button>
-    </nav>
-    <main>
-      <slot />
-    </main>
-  </div>-->
   <div>
     <el-menu
       class="admin-nav"
@@ -55,7 +40,7 @@
 </template>
 
 <script>
-import firebase from "firebase"
+import firebase from "firebase";
 
 export default {
   name: "LayoutAdmin",
@@ -65,14 +50,14 @@ export default {
         .auth()
         .signOut()
         .then(() => {
-          this.$router.replace("/login")
-        })
+          this.$router.replace("/login");
+        });
     }
   },
   props: {
     //data here
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

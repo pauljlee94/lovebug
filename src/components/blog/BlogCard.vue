@@ -2,9 +2,7 @@
   <el-card class="admin-blogCard" :body-style="{ padding: '0px' }">
     <div slot="header" class="clearfix">
       <el-button v-if="authenticated" @click="viewPost">EDIT</el-button>
-      <el-button v-if="authenticated" @click="deleteBlogPost(id)"
-        >DELTE</el-button
-      >
+      <el-button v-if="authenticated" @click="deleteBlogPost(id)">DELTE</el-button>
     </div>
     <h2 class="postTitle">{{ title }}</h2>
     <p class="postDate">{{ formattedDate }}</p>
@@ -13,7 +11,7 @@
 </template>
 
 <script>
-import firebase from "firebase"
+import firebase from "firebase";
 
 export default {
   name: "BlogCard",
@@ -21,11 +19,11 @@ export default {
   data() {
     return {
       authenticated: false
-    }
+    };
   },
   computed: {
     formattedDate: function() {
-      const dateObj = new Date(this.time)
+      const dateObj = new Date(this.time);
       const monthNames = [
         "January",
         "February",
@@ -39,33 +37,38 @@ export default {
         "October",
         "November",
         "December"
-      ]
-      const year = dateObj.getFullYear()
-      const month = dateObj.getMonth()
-      const date = dateObj.getDate()
+      ];
+      const year = dateObj.getFullYear();
+      const month = dateObj.getMonth();
+      const date = dateObj.getDate();
 
-      return monthNames[month] + " " + date + " " + year
+      return monthNames[month] + " " + date + ", " + year;
     }
   },
   beforeMount() {
-    const currentUser = firebase.auth().currentUser
-    if (currentUser) this.authenticated = true
+    const currentUser = firebase.auth().currentUser;
+    if (currentUser) this.authenticated = true;
   },
   methods: {
     viewPost() {
-      this.$router.push("/admin/blog/" + this.id)
+      this.$router.push("/admin/blog/" + this.id);
     }
   }
-}
+};
 </script>
 
 <style>
 .admin-blogCard {
   margin: auto;
-  width: 95vw;
+  width: 350px;
   height: 500px;
 }
 .admin-blogCard img {
   width: 100%;
+}
+
+.admin-blogCard h2,
+.admin-blogCard p {
+  padding: 0 10px 0 10px;
 }
 </style>
