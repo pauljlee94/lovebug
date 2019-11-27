@@ -1,5 +1,5 @@
 <template>
-  <div class="layout-admin">
+  <!-- <div class="layout-admin">
     <nav>
       <h1>Admin</h1>
       <a href="/">Home</a>
@@ -7,9 +7,47 @@
       <a href="/admin/portfolio">Portfolio</a>
       <a href="/admin/schedule">Schedule</a>
       <a href="/admin/blog/new">New Blog Post</a>
-      <!-- <a href="/admin/portfolio/new">New Blog Post</a> -->
+      <a href="/admin/portfolio/new">New Blog Post</a>
       <button @click="logout">LOG OUT</button>
     </nav>
+    <main>
+      <slot />
+    </main>
+  </div>-->
+  <div>
+    <el-menu
+      class="admin-nav"
+      mode="horizontal"
+      background-color="#2C3F52"
+      text-color="#fff"
+      active-text-color="#ffd04b"
+    >
+      <el-menu-item index="1">
+        <a href="/">Lovebug & Co.</a>
+      </el-menu-item>
+      <el-menu-item index="3">
+        <a href="/admin/blog">Blog</a>
+      </el-menu-item>
+      <el-menu-item index="3">
+        <a href="/admin/portfolio">Portfolio</a>
+      </el-menu-item>
+      <el-menu-item index="3">
+        <a href="/admin/schedule">Schedule</a>
+      </el-menu-item>
+      <el-menu-item index="3">
+        <el-button>
+          <a href="/admin/blog/new">New Blog Post</a>
+        </el-button>
+      </el-menu-item>
+      <el-menu-item index="3">
+        <el-button>
+          <a href="/admin/portfolio/new">New Photo</a>
+        </el-button>
+      </el-menu-item>
+      <el-menu-item index="3">
+        <el-button @click="logout">LOG OUT</el-button>
+      </el-menu-item>
+    </el-menu>
     <main>
       <slot />
     </main>
@@ -38,4 +76,9 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped></style>
+<style scoped>
+.admin-nav a {
+  text-decoration: none;
+  padding: 10px;
+}
+</style>

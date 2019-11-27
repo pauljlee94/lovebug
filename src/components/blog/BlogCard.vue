@@ -1,13 +1,13 @@
 <template>
-  <el-card class="blogCard">
+  <el-card class="admin-blogCard" :body-style="{ padding: '0px' }">
     <div slot="header" class="clearfix">
-      <h2 class="postTitle">{{ title }}</h2>
-      <p class="postDate">{{ formattedDate }}</p>
       <el-button v-if="authenticated" @click="viewPost">EDIT</el-button>
       <el-button v-if="authenticated" @click="deleteBlogPost(id)"
         >DELTE</el-button
       >
     </div>
+    <h2 class="postTitle">{{ title }}</h2>
+    <p class="postDate">{{ formattedDate }}</p>
     <div v-html="content"></div>
   </el-card>
 </template>
@@ -59,4 +59,13 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+.admin-blogCard {
+  margin: auto;
+  width: 95vw;
+  height: 500px;
+}
+.admin-blogCard img {
+  width: 100%;
+}
+</style>

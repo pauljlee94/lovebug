@@ -1,17 +1,34 @@
 <template>
   <div>
     <h1>New Post</h1>
-    <label for="blog-title">Title</label>
-    <input v-model="title" id="blog-title" type="text" />
-    <label for="blog-content">Content</label>
-    <vue-editor id="editor" v-model="content" />
-    <button @click="savePost">Add</button>
+    <el-card class="postForm">
+      <el-row class="row-m">
+        <el-input
+          v-model="title"
+          id="blog-title"
+          type="text"
+          placeholder="title"
+          clearable
+        />
+      </el-row>
+      <el-row class="row-m">
+        <vue-editor
+          :editorToolbar="customToolbar"
+          placeholder="content"
+          id="editor"
+          v-model="content"
+        />
+      </el-row>
+      <el-row class="row-m">
+        <el-button @click="savePost">Add</el-button>
+      </el-row>
+    </el-card>
   </div>
 </template>
 
 <script>
-import { db } from "../../main";
-import { VueEditor } from "vue2-editor";
+import { db } from "../../main"
+import { VueEditor } from "vue2-editor"
 
 export default {
   name: "NewBlogPost",
@@ -19,8 +36,13 @@ export default {
     return {
       title: "",
       time: "",
-      content: ""
-    };
+      content: "",
+      customToolbar: [
+        ["bold", "italic", "underline"],
+        [{ list: "ordered" }, { list: "bullet" }],
+        ["image", "code-block"]
+      ]
+    }
   },
   methods: {
     savePost() {
@@ -33,12 +55,12 @@ export default {
         .then(() => this.$router.replace("/admin/blog"))
         .catch(error => {
           //console.error(`Error adding document: ${error}`)
-          return error;
-        });
+          return error
+        })
     }
   },
   components: { VueEditor }
-};
+}
 </script>
 
 <style></style>
