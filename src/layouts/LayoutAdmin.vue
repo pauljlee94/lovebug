@@ -44,19 +44,19 @@
         </el-menu-item>
         <el-menu-item index="5">
           <a href="/admin/blog/new">
-            <i class="el-icon-circle-plus-outline"></i>
+            <i class="el-icon-tickets"></i>
             <span>New Post</span>
           </a>
         </el-menu-item>
         <el-menu-item index="6">
           <a href="/admin/portfolio/new">
-            <i class="el-icon-circle-plus-outline"></i>
+            <i class="el-icon-camera"></i>
             <span>New Photo</span>
           </a>
         </el-menu-item>
         <el-menu-item index="7">
           <a @click="logout">
-            <i class="el-icon-user"></i>
+            <i class="el-icon-error"></i>
             <span>Log out</span>
           </a>
         </el-menu-item>

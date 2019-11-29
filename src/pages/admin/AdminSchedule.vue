@@ -10,9 +10,13 @@
     <h1>Scheduled Events</h1>
     <div class="schedule-card" v-for="(appointment, index) in appointments" :key="index">
       <el-card>
-        <div slot="header" class="clearfix" style="display:flex; justify-content: space-between;">
+        <div
+          slot="header"
+          class="clearfix"
+          style="display:flex; justify-content: space-between; align-items: center;"
+        >
           <h2>{{ appointment.name }}</h2>
-          <el-button @click="deleteEvent(appointment.id)" type="danger">DELETE</el-button>
+          <el-button size="small" @click="deleteEvent(appointment.id)" type="danger">DELETE</el-button>
         </div>
         <p>{{ appointment.time }}</p>
         <p>{{ appointment.email }}</p>

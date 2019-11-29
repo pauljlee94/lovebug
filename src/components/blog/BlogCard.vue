@@ -1,8 +1,8 @@
 <template>
   <el-card class="blogCard">
     <div slot="header" class="clearfix">
-      <el-button type="primary" v-if="authenticated" @click="viewPost">EDIT</el-button>
-      <el-button type="danger" v-if="authenticated" @click="deleteBlogPost(id)">DELTE</el-button>
+      <el-button size="small" type="primary" v-if="authenticated" @click="viewPost">EDIT</el-button>
+      <el-button size="small" type="danger" v-if="authenticated" @click="deleteBlogPost(id)">DELTE</el-button>
     </div>
     <h2 class="postTitle">{{ title }}</h2>
     <p class="postDate">{{ formattedDate }}</p>

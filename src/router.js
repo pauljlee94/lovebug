@@ -13,6 +13,7 @@ import AdminBlog from "./pages/admin/AdminBlog.vue"
 import NewBlogPost from "./components/blog/NewBlogPost.vue"
 import BlogPost from "./components/blog/BlogPost.vue"
 import AdminPortfolio from "./pages/admin/AdminPortfolio.vue"
+import NewPortfolio from "./components/portfolio/NewPortfolio.vue"
 import AdminSchedule from "./pages/admin/AdminSchedule.vue"
 
 import NotFound from "./pages/public/NotFound"
@@ -69,6 +70,11 @@ const router = new Router({
           path: "blog/new",
           name: "newBlogPost",
           component: NewBlogPost
+        },
+        {
+          path: "portfolio/new",
+          name: "newPortfolio",
+          component: NewPortfolio
         },
         {
           path: "blog/:id",
