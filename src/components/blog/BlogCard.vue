@@ -58,7 +58,7 @@ export default {
 </script>
 
 <style>
-.admin-blogCard {
+/* .admin-blogCard {
   margin: auto;
   width: 350px;
   height: 500px;
@@ -70,5 +70,5 @@ export default {
 .admin-blogCard h2,
 .admin-blogCard p {
   padding: 0 10px 0 10px;
-}
+} */
 </style>
