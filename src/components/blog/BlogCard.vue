@@ -1,5 +1,5 @@
 <template>
-  <el-card class="admin-blogCard" :body-style="{ padding: '0px' }">
+  <el-card class="blogCard">
     <div slot="header" class="clearfix">
       <el-button v-if="authenticated" @click="viewPost">EDIT</el-button>
       <el-button v-if="authenticated" @click="deleteBlogPost(id)">DELTE</el-button>
@@ -58,17 +58,28 @@ export default {
 </script>
 
 <style>
-/* .admin-blogCard {
-  margin: auto;
-  width: 350px;
-  height: 500px;
+.blogCard p {
+  margin: 0;
+  padding: 5px 10px 10px 10px;
+  font-size: 14px;
 }
-.admin-blogCard img {
-  width: 100%;
+.blogCard {
+  margin: 20px 0 20px 0;
 }
-
-.admin-blogCard h2,
-.admin-blogCard p {
+.blogCard .el-card__header {
+  padding: 15px;
+}
+.blogCard .el-card__body {
+  padding: 5px;
+  height: 250px;
+  overflow: scroll;
+}
+.postDate {
+  color: rgb(156, 156, 156);
+}
+.blogCard h2 {
+  font-size: 24px;
+  margin: 0;
   padding: 0 10px 0 10px;
-} */
+}
 </style>

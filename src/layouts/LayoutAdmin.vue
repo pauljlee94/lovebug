@@ -6,11 +6,12 @@
         v-bind:class="{expanded: !isCollapse}"
         mode="vertical"
         :collapse="isCollapse"
+        :default-active="activeIndex"
         background-color="#2C3F52"
         text-color="#fff"
         active-text-color="#ffd04b"
       >
-        <el-menu-item index="1">
+        <el-menu-item index="0">
           <i v-if="isCollapse" class="el-icon-arrow-right" @click="handleMenuClick"></i>
           <i v-if="!isCollapse" class="el-icon-arrow-left" @click="handleMenuClick"></i>
 
@@ -24,7 +25,7 @@
             <span>Lovebug & Co.</span>
           </a>
         </el-menu-item>
-        <el-menu-item index="3">
+        <el-menu-item index="2">
           <a href="/admin/blog">
             <i class="el-icon-collection"></i>
             <span>Blog</span>
@@ -36,25 +37,25 @@
             <span>Portfolio</span>
           </a>
         </el-menu-item>
-        <el-menu-item index="3">
+        <el-menu-item index="4">
           <a href="/admin/schedule">
             <i class="el-icon-date"></i>
             <span>Schedule</span>
           </a>
         </el-menu-item>
-        <el-menu-item index="3">
+        <el-menu-item index="5">
           <a href="/admin/blog/new">
             <i class="el-icon-circle-plus-outline"></i>
             <span>New Post</span>
           </a>
         </el-menu-item>
-        <el-menu-item index="3">
+        <el-menu-item index="6">
           <a href="/admin/portfolio/new">
             <i class="el-icon-circle-plus-outline"></i>
             <span>New Photo</span>
           </a>
         </el-menu-item>
-        <el-menu-item index="3">
+        <el-menu-item index="7">
           <a @click="logout">
             <i class="el-icon-user"></i>
             <span>Log out</span>
@@ -77,7 +78,8 @@ export default {
   name: "LayoutAdmin",
   data() {
     return {
-      isCollapse: true
+      isCollapse: true,
+      activeIndex: null
     };
   },
   methods: {

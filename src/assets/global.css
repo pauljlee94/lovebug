@@ -17,7 +17,7 @@ body {
 }
 
 .postForm h1 {
-  padding-bottom: 20px;
+  margin: 20px;
 }
 
 .quillWrapper {
@@ -42,6 +42,7 @@ body {
   height: 100%;
   position: fixed;
 }
+
 .admin-nav a {
   text-decoration: none;
   color: white;
@@ -51,10 +52,9 @@ body {
 }
 
 .expanded {
-  /* position: absolute; */
   z-index: 1000;
 }
 
 .admin-nav.expanded a span {
-  margin-right: 200px;
+  margin-right: 100vw;
 }
