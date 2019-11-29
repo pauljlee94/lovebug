@@ -1,15 +1,9 @@
 <template>
-  <div>
+  <div class="postForm">
     <h1>New Post</h1>
-    <el-card class="postForm">
+    <el-card>
       <el-row class="row-m">
-        <el-input
-          v-model="title"
-          id="blog-title"
-          type="text"
-          placeholder="title"
-          clearable
-        />
+        <el-input v-model="title" id="blog-title" type="text" placeholder="title" clearable />
       </el-row>
       <el-row class="row-m">
         <vue-editor
@@ -27,8 +21,8 @@
 </template>
 
 <script>
-import { db } from "../../main"
-import { VueEditor } from "vue2-editor"
+import { db } from "../../main";
+import { VueEditor } from "vue2-editor";
 
 export default {
   name: "NewBlogPost",
@@ -42,7 +36,7 @@ export default {
         [{ list: "ordered" }, { list: "bullet" }],
         ["image", "code-block"]
       ]
-    }
+    };
   },
   methods: {
     savePost() {
@@ -55,12 +49,12 @@ export default {
         .then(() => this.$router.replace("/admin/blog"))
         .catch(error => {
           //console.error(`Error adding document: ${error}`)
-          return error
-        })
+          return error;
+        });
     }
   },
   components: { VueEditor }
-}
+};
 </script>
 
 <style></style>

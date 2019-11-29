@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="postForm">
     <h1>Edit Post</h1>
-    <el-card class="postForm">
+    <el-card>
       <el-row class="row-m">
         <el-input v-model="title" id="blog-title" type="text" placeholder="title" clearable />
       </el-row>

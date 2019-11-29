@@ -11,10 +11,17 @@ body {
   margin: 0;
 }
 
+/* blog post form */
 .postForm {
-  margin: auto;
-  width: 80vw;
-  height: 630px;
+  text-align: center;
+}
+
+.postForm h1 {
+  padding-bottom: 20px;
+}
+
+.quillWrapper {
+  text-align: left;
 }
 
 .row-m {
@@ -23,7 +30,7 @@ body {
 
 /* admin main content */
 .main-content {
-  margin-left: 64px;
+  padding: 5px 10px 5px 74px;
 }
 
 /* admin nav */
@@ -41,4 +48,13 @@ body {
 }
 .admin-nav a span {
   padding-left: 12px;
+}
+
+.expanded {
+  position: absolute;
+  z-index: 1000;
+}
+
+.admin-nav.expanded a span {
+  margin-right: 200px;
 }

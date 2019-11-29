@@ -3,6 +3,7 @@
     <el-col :span="24" class="admin-nav-container">
       <el-menu
         class="admin-nav"
+        v-bind:class="{expanded: !isCollapse}"
         mode="vertical"
         :collapse="isCollapse"
         background-color="#2C3F52"
@@ -56,7 +57,7 @@
         <el-menu-item index="3">
           <a @click="logout">
             <i class="el-icon-user"></i>
-            <span>LOG OUT</span>
+            <span>Log out</span>
           </a>
         </el-menu-item>
       </el-menu>
