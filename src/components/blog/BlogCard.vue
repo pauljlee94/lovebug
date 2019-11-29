@@ -1,8 +1,8 @@
 <template>
   <el-card class="blogCard">
     <div slot="header" class="clearfix">
-      <el-button v-if="authenticated" @click="viewPost">EDIT</el-button>
-      <el-button v-if="authenticated" @click="deleteBlogPost(id)">DELTE</el-button>
+      <el-button type="primary" v-if="authenticated" @click="viewPost">EDIT</el-button>
+      <el-button type="danger" v-if="authenticated" @click="deleteBlogPost(id)">DELTE</el-button>
     </div>
     <h2 class="postTitle">{{ title }}</h2>
     <p class="postDate">{{ formattedDate }}</p>
@@ -58,28 +58,4 @@ export default {
 </script>
 
 <style>
-.blogCard p {
-  margin: 0;
-  padding: 5px 10px 10px 10px;
-  font-size: 14px;
-}
-.blogCard {
-  margin: 20px 0 20px 0;
-}
-.blogCard .el-card__header {
-  padding: 15px;
-}
-.blogCard .el-card__body {
-  padding: 5px;
-  height: 250px;
-  overflow: scroll;
-}
-.postDate {
-  color: rgb(156, 156, 156);
-}
-.blogCard h2 {
-  font-size: 24px;
-  margin: 0;
-  padding: 0 10px 0 10px;
-}
 </style>

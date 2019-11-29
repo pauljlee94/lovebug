@@ -1,12 +1,14 @@
 <template>
   <div>
     <div v-if="!scheduled">
-      <label for="name">Name</label>
-      <input v-model="name" id="name" type="text" />
-      <label for="name">Email</label>
-      <input v-model="email" id="email" type="text" />
-      <datepicker v-model="appointmentDate" :disabled-dates="disabledDates" />
-      <button @click="updateData">Book Me!</button>
+      <form @submit="updateData">
+        <label for="name">Name</label>
+        <input v-model="name" id="name" type="text" required />
+        <label for="name">Email</label>
+        <input v-model="email" id="email" type="text" required />
+        <datepicker v-model="appointmentDate" :disabled-dates="disabledDates" />
+        <button>Book Me!</button>
+      </form>
     </div>
     <div v-else>
       <h1>Booked!</h1>

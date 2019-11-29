@@ -2,8 +2,7 @@
   <div>
     <el-col :span="24" class="admin-nav-container">
       <el-menu
-        class="admin-nav"
-        v-bind:class="{expanded: !isCollapse}"
+        class="admin-nav expandedMenu"
         mode="vertical"
         :collapse="isCollapse"
         :default-active="activeIndex"
@@ -12,8 +11,8 @@
         active-text-color="#ffd04b"
       >
         <el-menu-item index="0">
-          <i v-if="isCollapse" class="el-icon-arrow-right" @click="handleMenuClick"></i>
-          <i v-if="!isCollapse" class="el-icon-arrow-left" @click="handleMenuClick"></i>
+          <i v-if="isCollapse" class="el-icon-s-unfold" @click="handleMenuClick"></i>
+          <i v-if="!isCollapse" class="el-icon-s-fold" @click="handleMenuClick"></i>
 
           <!-- <span>
             <a href="/">Lovebug & Co.</a>

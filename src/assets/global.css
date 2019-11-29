@@ -11,6 +11,13 @@ body {
   margin: 0;
 }
 
+.quillWrapper {
+  text-align: left;
+}
+
+.row-m {
+  padding: 20px 0 20px 0;
+}
 /* blog post form */
 .postForm {
   text-align: center;
@@ -19,21 +26,40 @@ body {
 .postForm h1 {
   margin: 20px;
 }
-
-.quillWrapper {
-  text-align: left;
+/* Admin Blog Card */
+.blogCard p {
+  margin: 0;
+  padding: 5px 10px 10px 10px;
+  font-size: 14px;
 }
-
-.row-m {
-  padding: 20px 0 20px 0;
+.blogCard {
+  margin: 20px 0 20px 0;
 }
-
-/* admin main content */
+.blogCard .el-card__header {
+  padding: 15px;
+}
+.blogCard .el-card__body {
+  padding: 5px;
+  height: 250px;
+  overflow: scroll;
+}
+.postDate {
+  color: rgb(156, 156, 156);
+}
+.blogCard h2 {
+  font-size: 24px;
+  margin: 0;
+  padding: 0 10px 0 10px;
+}
+/* Admin Main Content*/
 .main-content {
-  padding: 5px 10px 5px 74px;
+  padding: 5px 10px 5px 58px;
 }
-
-/* admin nav */
+.main-content h1 {
+  padding-left: 10px;
+  font-size: 27px;
+}
+/* Admin Nav */
 .admin-nav-container {
   height: 100%;
 }
@@ -41,6 +67,15 @@ body {
 .admin-nav {
   height: 100%;
   position: fixed;
+  width: 45px;
+  z-index: 1000;
+  /* width: 45px; */
+}
+.admin-nav:not(.el-menu--collapse) {
+  width: 100vw;
+}
+.admin-nav .el-menu-item {
+  padding-left: 10px !important;
 }
 
 .admin-nav a {
@@ -51,10 +86,33 @@ body {
   padding-left: 12px;
 }
 
-.expanded {
-  z-index: 1000;
+/* Admin Schedule */
+.admin-calendar .vdp-datepicker__calendar {
+  width: 100%;
+}
+.schedule-card {
+  margin: 20px 0 20px 0;
+}
+.schedule-card p {
+  margin: 0;
+  padding: 5px 10px 10px 10px;
+  font-size: 14px;
+}
+.schedule-card h2 {
+  margin: 0;
+  padding: 5px 10px 10px 10px;
+  font-size: 20px;
 }
 
-.admin-nav.expanded a span {
-  margin-right: 100vw;
+.schedule-card .el-card__header {
+  padding: 5px;
 }
+.schedule-card .el-card__body {
+  padding: 5px;
+  height: 120px;
+  overflow: scroll;
+}
+
+/* .admin-nav.expanded a span {
+  margin-right: 100vw;
+} */

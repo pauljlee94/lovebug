@@ -1,7 +1,7 @@
 <template>
-  <div class="postForm">
+  <div>
     <h1>Edit Post</h1>
-    <el-card>
+    <el-card class="postForm">
       <el-row class="row-m">
         <el-input v-model="title" id="blog-title" type="text" placeholder="title" clearable />
       </el-row>
@@ -14,7 +14,7 @@
         />
       </el-row>
       <el-row class="row-m">
-        <el-button @click="updateData">Update</el-button>
+        <el-button style="width: 100%" type="primary" @click="updateData">Update</el-button>
       </el-row>
     </el-card>
   </div>
@@ -34,7 +34,7 @@ export default {
       customToolbar: [
         ["bold", "italic", "underline"],
         [{ list: "ordered" }, { list: "bullet" }],
-        ["image", "code-block"]
+        ["image", "link"]
       ]
     };
   },
