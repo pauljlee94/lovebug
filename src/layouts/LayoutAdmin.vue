@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-col :span="24">
+    <el-col :span="24" class="admin-nav-container">
       <el-menu
         class="admin-nav"
         mode="vertical"
@@ -18,52 +18,54 @@
           </span>-->
         </el-menu-item>
         <el-menu-item index="1">
-          <i class="el-icon-house"></i>
-          <span>
-            <a href="/">Lovebug & Co.</a>
-          </span>
+          <a href="/">
+            <i class="el-icon-house"></i>
+            <span>Lovebug & Co.</span>
+          </a>
         </el-menu-item>
         <el-menu-item index="3">
-          <i class="el-icon-collection"></i>
-          <span>
-            <a href="/admin/blog">Blog</a>
-          </span>
+          <a href="/admin/blog">
+            <i class="el-icon-collection"></i>
+            <span>Blog</span>
+          </a>
         </el-menu-item>
         <el-menu-item index="3">
-          <i class="el-icon-picture-outline"></i>
-          <span>
-            <a href="/admin/portfolio">Portfolio</a>
-          </span>
+          <a href="/admin/portfolio">
+            <i class="el-icon-picture-outline"></i>
+            <span>Portfolio</span>
+          </a>
         </el-menu-item>
         <el-menu-item index="3">
-          <i class="el-icon-date"></i>
-          <span>
-            <a href="/admin/schedule">Schedule</a>
-          </span>
+          <a href="/admin/schedule">
+            <i class="el-icon-date"></i>
+            <span>Schedule</span>
+          </a>
         </el-menu-item>
         <el-menu-item index="3">
-          <i class="el-icon-circle-plus-outline"></i>
-          <span>
-            <a href="/admin/blog/new">New Post</a>
-          </span>
+          <a href="/admin/blog/new">
+            <i class="el-icon-circle-plus-outline"></i>
+            <span>New Post</span>
+          </a>
         </el-menu-item>
         <el-menu-item index="3">
-          <i class="el-icon-circle-plus-outline"></i>
-          <span>
-            <a href="/admin/portfolio/new">New Photo</a>
-          </span>
+          <a href="/admin/portfolio/new">
+            <i class="el-icon-circle-plus-outline"></i>
+            <span>New Photo</span>
+          </a>
         </el-menu-item>
         <el-menu-item index="3">
-          <i class="el-icon-user"></i>
-          <span>
-            <a @click="logout">LOG OUT</a>
-          </span>
+          <a @click="logout">
+            <i class="el-icon-user"></i>
+            <span>LOG OUT</span>
+          </a>
         </el-menu-item>
       </el-menu>
     </el-col>
-    <main>
-      <slot />
-    </main>
+    <el-col class="main-content">
+      <main>
+        <slot />
+      </main>
+    </el-col>
   </div>
 </template>
 
@@ -97,14 +99,5 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-.admin-nav {
-  height: 100vh;
-}
-.admin-nav a {
-  text-decoration: none;
-  /* font-size: 10px; */
-  color: white;
-  padding-left: 12px;
-}
+<style>
 </style>

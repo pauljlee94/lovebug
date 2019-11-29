@@ -1,12 +1,4 @@
 <template>
-  <!-- <div>
-    <h1>New Post</h1>
-    <label for="blog-title">Title</label>
-    <input v-model="title" id="blog-title" type="text" />
-    <label for="blog-content">Content</label>
-    <vue-editor id="editor" v-model="content" />
-    <button @click="updateData()">Update</button>
-  </div>-->
   <div>
     <h1>Edit Post</h1>
     <el-card class="postForm">
@@ -73,4 +65,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+#editor {
+  height: 300px;
+}
+</style>

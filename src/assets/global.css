@@ -13,9 +13,32 @@ body {
 
 .postForm {
   margin: auto;
-  width: 95vw;
+  width: 80vw;
+  height: 630px;
 }
 
 .row-m {
   padding: 20px 0 20px 0;
+}
+
+/* admin main content */
+.main-content {
+  margin-left: 64px;
+}
+
+/* admin nav */
+.admin-nav-container {
+  height: 100%;
+}
+
+.admin-nav {
+  height: 100%;
+  position: fixed;
+}
+.admin-nav a {
+  text-decoration: none;
+  color: white;
+}
+.admin-nav a span {
+  padding-left: 12px;
 }
