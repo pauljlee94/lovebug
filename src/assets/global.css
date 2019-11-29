@@ -32,8 +32,13 @@ body {
   padding: 5px 10px 10px 10px;
   font-size: 14px;
 }
+
 .blogCard {
   margin: 20px 0 20px 0;
+}
+
+.blogCard img {
+  width: 100%;
 }
 .blogCard .el-card__header {
   padding: 15px;

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Admin Schedule</h1>
+    <h1>Manage Schedule</h1>
     <datepicker
       class="admin-calendar"
       v-model="appointmentDate"
