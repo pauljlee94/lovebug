@@ -98,7 +98,7 @@ export default {
           if (uploadedImages === array.length) {
             this.uploading = false;
             this.fileList = [];
-            console.log((this.$refs.upload.uploadFiles = []));
+            this.$refs.upload.uploadFiles = [];
           }
         });
       });

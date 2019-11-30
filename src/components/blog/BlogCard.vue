@@ -64,47 +64,4 @@ export default {
 </script>
 
 <style>
-/* Admin Blog Card */
-.blogCard {
-  position: relative;
-  padding: 0px;
-  margin: 40px 0 40px 0;
-}
-.blogCard .el-card__header {
-  padding: 10px 15px 10px 15px;
-}
-.blogCard h2 {
-  font-size: 20px;
-  margin: 0;
-  font-weight: 500;
-}
-.blogCard .postDate {
-  margin: 5px 0 5px 0;
-  color: rgb(156, 156, 156);
-}
-.blogCard .el-card__body {
-  height: 270px;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  padding: 0px 15px 0px 15px;
-  margin: 10px 0 38px 0;
-}
-.blogCard p {
-  font-size: 14px;
-  margin: 5px 0 5px 0;
-}
-.blogCard img {
-  width: 100%;
-}
-.blogCard .footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-}
-.blogCard .el-button {
-  margin: 0;
-  width: 50%;
-}
 </style>
