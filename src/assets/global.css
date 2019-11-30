@@ -70,10 +70,10 @@ body {
 }
 /* Admin Main Content*/
 .main-content {
-  padding: 5px 10px 5px 58px;
+  padding: 5px 10px 5px 53px;
 }
 .main-content h1 {
-  padding-left: 10px;
+  padding-left: 5px;
   font-size: 25px;
   font-weight: 700;
 }
@@ -147,6 +147,3 @@ body {
   margin-top: 20px;
   width: 100%;
 }
-/* .admin-nav.expanded a span {
-  margin-right: 100vw;
-} */

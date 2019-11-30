@@ -9,6 +9,7 @@ import Blog from "./pages/public/Blog.vue"
 import Contact from "./pages/public/Contact.vue"
 import Login from "./pages/admin/Login.vue"
 import Admin from "./pages/admin/Admin.vue"
+import AdminHome from "./pages/admin/AdminHome.vue"
 import AdminBlog from "./pages/admin/AdminBlog.vue"
 import NewBlogPost from "./components/blog/NewBlogPost.vue"
 import BlogPost from "./components/blog/BlogPost.vue"
@@ -61,6 +62,11 @@ const router = new Router({
         requiresAuth: true
       },
       children: [
+        {
+          path: "/",
+          name: "adminHome",
+          component: AdminHome
+        },
         {
           path: "blog",
           name: "adminBlog",

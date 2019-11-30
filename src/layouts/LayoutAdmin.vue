@@ -11,8 +11,16 @@
         active-text-color="#ffd04b"
       >
         <el-menu-item index="0">
-          <i v-if="isCollapse" class="el-icon-s-unfold" @click="handleMenuClick"></i>
-          <i v-if="!isCollapse" class="el-icon-s-fold" @click="handleMenuClick"></i>
+          <i
+            v-if="isCollapse"
+            class="el-icon-s-unfold"
+            @click="handleMenuClick"
+          ></i>
+          <i
+            v-if="!isCollapse"
+            class="el-icon-s-fold"
+            @click="handleMenuClick"
+          ></i>
 
           <!-- <span>
             <a href="/">Lovebug & Co.</a>
@@ -64,14 +72,14 @@
     </el-col>
     <el-col class="main-content">
       <main>
-        <slot />
+        <router-view></router-view>
       </main>
     </el-col>
   </div>
 </template>
 
 <script>
-import firebase from "firebase";
+import firebase from "firebase"
 
 export default {
   name: "LayoutAdmin",
@@ -79,7 +87,7 @@ export default {
     return {
       isCollapse: true,
       activeIndex: null
-    };
+    }
   },
   methods: {
     logout() {
@@ -87,19 +95,18 @@ export default {
         .auth()
         .signOut()
         .then(() => {
-          this.$router.replace("/login");
-        });
+          this.$router.replace("/login")
+        })
     },
     handleMenuClick() {
-      this.isCollapse = !this.isCollapse;
+      this.isCollapse = !this.isCollapse
     }
   },
   props: {
     //data here
   }
-};
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
-</style>
+<style></style>
