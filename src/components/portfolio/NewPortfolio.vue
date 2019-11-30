@@ -2,7 +2,12 @@
   <div>
     <h1>New Photo</h1>
     <div class="uploadform">
-      <el-select v-model="category" class="photo-category" placeholder="Category">
+      <el-select
+        v-model="category"
+        @change="stageImages"
+        class="photo-category"
+        placeholder="Category"
+      >
         <el-option
           v-for="option in categoryOptions"
           :key="option.value"
@@ -13,12 +18,14 @@
       </el-select>
       <el-upload
         class="admin-upload"
+        ref="upload"
         drag
         action
-        multiåple
+        multiple
         list-type="picture"
-        :http-request="stageImages"
-        :file-list="fileList"
+        :on-change="stageImages"
+        :on-remove="stageImages"
+        :auto-upload="false"
       >
         <i class="el-icon-upload"></i>
         <div class="el-upload__text">
@@ -26,29 +33,41 @@
           <em>click to upload</em>
         </div>
       </el-upload>
-      <el-button @click="test" class="photouploadbutton" type="primary">Upload Photo</el-button>
+      <el-button
+        v-bind:disabled="disabled"
+        @click="uploadImage"
+        class="photouploadbutton"
+        type="primary"
+      >
+        <i v-if="uploading" class="el-icon-loading"></i>
+        <span v-if="!uploading">Upload Photo</span>
+      </el-button>
     </div>
   </div>
 </template>
 
 <script>
+import firebase from "firebase";
+
 export default {
   name: "NewPortfolio",
   data() {
     return {
       fileList: [],
+      disabled: true,
+      uploading: false,
       category: "",
       categoryOptions: [
         {
-          value: "Weddings & Elopements",
+          value: "weddings",
           label: "Weddings & Elopements"
         },
         {
-          value: "Engagements & Couples",
+          value: "engagements",
           label: "Engagements & Couples"
         },
         {
-          value: "Newborns & Children",
+          value: "newborns",
           label: "Newborns & Children"
         }
       ]
@@ -56,16 +75,33 @@ export default {
   },
   methods: {
     stageImages() {
-      console.log("test");
+      if (this.$refs.upload.uploadFiles.length !== 0 && this.category !== "") {
+        this.disabled = false;
+      } else {
+        this.disabled = true;
+      }
     },
-    test() {
-      console.log("upload");
-    },
-    handleRemove(file, fileList) {
-      console.log(file, fileList);
-    },
-    handlePreview(file) {
-      console.log(file);
+    uploadImage() {
+      let stagedImages = this.$refs.upload.uploadFiles;
+      stagedImages.forEach(image => {
+        this.fileList.push(image.raw);
+      });
+
+      let uploadedImages = 0;
+      this.uploading = true;
+      this.fileList.forEach((file, index, array) => {
+        const storageRef = firebase
+          .storage()
+          .ref(`${this.category}/${file.name}`);
+        storageRef.put(file).then(() => {
+          uploadedImages++;
+          if (uploadedImages === array.length) {
+            this.uploading = false;
+            this.fileList = [];
+            console.log((this.$refs.upload.uploadFiles = []));
+          }
+        });
+      });
     }
   },
   components: {}
