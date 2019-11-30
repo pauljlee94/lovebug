@@ -7,21 +7,22 @@
       :inline="true"
       :highlighted="highlighted"
     />
-    <h1>Scheduled Events</h1>
-    <div class="schedule-card" v-for="(appointment, index) in appointments" :key="index">
-      <el-card>
-        <div
-          slot="header"
-          class="clearfix"
-          style="display:flex; justify-content: space-between; align-items: center;"
-        >
+    <h1>Upcoming Events</h1>
+    <el-timeline style="padding-left: 0;">
+      <el-timeline-item
+        class="schedule-card"
+        v-for="(appointment, index) in appointments"
+        :key="index"
+        :timestamp="appointment.time"
+        placement="top"
+      >
+        <el-card>
           <h2>{{ appointment.name }}</h2>
-          <el-button size="small" @click="deleteEvent(appointment.id)" type="danger">DELETE</el-button>
-        </div>
-        <p>{{ appointment.time }}</p>
-        <p>{{ appointment.email }}</p>
-      </el-card>
-    </div>
+          <p>{{ appointment.email }}</p>
+          <el-button size="mini" @click="deleteEvent(appointment.id)" type="danger">DELETE</el-button>
+        </el-card>
+      </el-timeline-item>
+    </el-timeline>
   </div>
 </template>
 
