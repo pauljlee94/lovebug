@@ -2,18 +2,23 @@
   <div>
     <h1>New Photo</h1>
     <div class="uploadform">
-      <el-select class="photo-category" placeholder="Category">
-        <el-option>Wedding</el-option>
-        <el-option>blah</el-option>
+      <el-select v-model="category" class="photo-category" placeholder="Category">
+        <el-option
+          v-for="option in categoryOptions"
+          :key="option.value"
+          :label="option.label"
+          :value="option.value"
+          :auto-upload="false"
+        ></el-option>
       </el-select>
       <el-upload
         class="admin-upload"
         drag
-        action="https://jsonplaceholder.typicode.com/posts/"
-        :on-preview="handlePreview"
-        :on-remove="handleRemove"
+        action
+        multiåple
+        list-type="picture"
+        :http-request="stageImages"
         :file-list="fileList"
-        multiple
       >
         <i class="el-icon-upload"></i>
         <div class="el-upload__text">
@@ -21,6 +26,7 @@
           <em>click to upload</em>
         </div>
       </el-upload>
+      <el-button @click="test" class="photouploadbutton" type="primary">Upload Photo</el-button>
     </div>
   </div>
 </template>
@@ -30,10 +36,38 @@ export default {
   name: "NewPortfolio",
   data() {
     return {
-      fileList: []
+      fileList: [],
+      category: "",
+      categoryOptions: [
+        {
+          value: "Weddings & Elopements",
+          label: "Weddings & Elopements"
+        },
+        {
+          value: "Engagements & Couples",
+          label: "Engagements & Couples"
+        },
+        {
+          value: "Newborns & Children",
+          label: "Newborns & Children"
+        }
+      ]
     };
   },
-  methods: {},
+  methods: {
+    stageImages() {
+      console.log("test");
+    },
+    test() {
+      console.log("upload");
+    },
+    handleRemove(file, fileList) {
+      console.log(file, fileList);
+    },
+    handlePreview(file) {
+      console.log(file);
+    }
+  },
   components: {}
 };
 </script>
@@ -52,5 +86,9 @@ export default {
 .photo-category {
   width: 100%;
   margin-bottom: 20px;
+}
+.uploadform .el-button {
+  margin-top: 20px;
+  width: 100%;
 }
 </style>
