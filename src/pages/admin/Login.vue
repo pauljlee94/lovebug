@@ -9,11 +9,22 @@
       </el-row>
       <el-row>
         <!-- <label for="email">Email:</label> -->
-        <el-input placeholder="email" v-model="email" id="email" type="email" />
+        <el-input
+          prefix-icon="el-icon-user"
+          placeholder="email"
+          v-model="email"
+          id="email"
+          type="email"
+        />
       </el-row>
       <el-row>
         <!-- <label for="passowrd">Password:</label> -->
-        <el-input placeholder="password" v-model="password" type="password" />
+        <el-input
+          prefix-icon="el-icon-lock"
+          placeholder="password"
+          v-model="password"
+          type="password"
+        />
       </el-row>
       <el-row>
         <el-button @click="login" id="password" type="submit">Log In</el-button>
@@ -23,7 +34,7 @@
 </template>
 
 <script>
-import firebase from "firebase";
+import firebase from "firebase"
 
 export default {
   name: "login",
@@ -33,19 +44,19 @@ export default {
       password: "",
       //loading: false,
       errorMsg: ""
-    };
+    }
   },
   props: {
     //data here
   },
   components: {},
   beforeMount() {
-    const currentUser = firebase.auth().currentUser;
-    if (currentUser) this.$router.replace("admin");
+    const currentUser = firebase.auth().currentUser
+    if (currentUser) this.$router.replace("admin")
   },
   methods: {
     async login(e) {
-      e.preventDefault();
+      e.preventDefault()
       //this.loading = true
 
       await firebase
@@ -54,16 +65,16 @@ export default {
         .then(user => {
           //console.log(user)
           //this.loading = false
-          this.$router.replace("admin");
-          return user;
+          this.$router.replace("admin")
+          return user
         })
         .catch(error => {
           //this.loading = false
-          this.errorMsg = error.message;
-        });
+          this.errorMsg = error.message
+        })
     }
   }
-};
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -77,6 +88,12 @@ export default {
   margin: auto;
   width: 90vw;
   text-align: center;
+}
+
+#login h1 {
+  margin-top: 10px;
+  font-weight: 500;
+  font-size: 30px;
 }
 .el-input {
   margin-bottom: 25px;

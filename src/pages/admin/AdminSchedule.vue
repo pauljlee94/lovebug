@@ -10,16 +10,32 @@
     <h1>Upcoming Events</h1>
     <el-timeline style="padding-left: 0;">
       <el-timeline-item
-        class="schedule-card"
         v-for="(appointment, index) in appointments"
         :key="index"
         :timestamp="appointment.time"
         placement="top"
       >
-        <el-card>
-          <h2>{{ appointment.name }}</h2>
-          <p>{{ appointment.email }}</p>
-          <el-button size="mini" @click="deleteEvent(appointment.id)" type="danger">DELETE</el-button>
+        <el-card class="schedule-card">
+          <div class="details">
+            <h2>{{ appointment.name }}</h2>
+            <p>{{ appointment.email }}</p>
+          </div>
+          <div class="nav">
+            <el-button
+              size="mini"
+              @click="deleteEvent(appointment.id)"
+              type="primary"
+            >
+              <i class="el-icon-edit"></i>
+            </el-button>
+            <el-button
+              size="mini"
+              @click="deleteEvent(appointment.id)"
+              type="danger"
+            >
+              <i class="el-icon-delete"></i>
+            </el-button>
+          </div>
         </el-card>
       </el-timeline-item>
     </el-timeline>
@@ -27,8 +43,8 @@
 </template>
 
 <script>
-import { db } from "../../main";
-import Datepicker from "vuejs-datepicker";
+import { db } from "../../main"
+import Datepicker from "vuejs-datepicker"
 
 export default {
   name: "AdminSchedule",
@@ -39,15 +55,15 @@ export default {
         dates: []
       },
       appointments: []
-    };
+    }
   },
   components: { Datepicker },
   methods: {
     deleteEvent(id) {
       const index = this.appointments
         .map(appointment => appointment.id)
-        .indexOf(id);
-      this.appointments.splice(index, 1);
+        .indexOf(id)
+      this.appointments.splice(index, 1)
       db.collection("appointments")
         .doc(id)
         .delete()
@@ -56,20 +72,20 @@ export default {
         })
         .catch(error => {
           //console.error("Error removing document:", error);
-          return error;
-        });
+          return error
+        })
     }
   },
   created() {
-    const ref = db.collection("appointments").orderBy("time");
+    const ref = db.collection("appointments").orderBy("time")
     ref.get().then(appointments => {
       appointments.forEach(appointment => {
-        const data = appointment.data();
-        data.id = appointment.id;
-        this.appointments.push(data);
+        const data = appointment.data()
+        data.id = appointment.id
+        this.appointments.push(data)
         this.appointments.forEach(appointment => {
-          const dateObj = new Date(appointment.time);
-          this.highlighted.dates.push(dateObj);
+          const dateObj = new Date(appointment.time)
+          this.highlighted.dates.push(dateObj)
           const monthNames = [
             "January",
             "February",
@@ -83,18 +99,17 @@ export default {
             "October",
             "November",
             "December"
-          ];
-          const year = dateObj.getFullYear();
-          const month = dateObj.getMonth();
-          const date = dateObj.getDate();
+          ]
+          const year = dateObj.getFullYear()
+          const month = dateObj.getMonth()
+          const date = dateObj.getDate()
 
-          appointment.time = monthNames[month] + " " + date + " " + year;
-        });
-      });
-    });
+          appointment.time = monthNames[month] + " " + date + " " + year
+        })
+      })
+    })
   }
-};
+}
 </script>
 
-<style>
-</style>
+<style></style>

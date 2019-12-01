@@ -1,28 +1,33 @@
 <template>
   <div id="admin">
-    <h1>Admin Home</h1>
     <el-card class="adminCard">
+      <div slot="header" class="clearfix">
+        <h2 class="cardTitle">Manage Blog</h2>
+      </div>
       <a href="">
         <div class="image blog">
           <img src="../../assets/images/pencil.jpg" />
         </div>
-        <h2>Manage Blog</h2>
       </a>
     </el-card>
     <el-card class="adminCard">
+      <div slot="header" class="clearfix">
+        <h2 class="cardTitle">Manage Portfolio</h2>
+      </div>
       <a href="">
         <div class="image portfolio">
           <img src="../../assets/images/camera.jpg" />
         </div>
-        <h2>Manage Portfolio</h2>
       </a>
     </el-card>
     <el-card class="adminCard">
+      <div slot="header" class="clearfix">
+        <h2 class="cardTitle">Manage Schedule</h2>
+      </div>
       <a href="">
         <div class="image 3">
           <img src="../../assets/images/clock.jpg" />
         </div>
-        <h2>Manage Schedule</h2>
       </a>
     </el-card>
   </div>
@@ -43,6 +48,10 @@ export default {
 .adminCard .el-card__body {
   padding: 0;
 }
+.adminCard .el-card__header {
+  padding: 10px;
+  height: 40px;
+}
 .adminCard a {
   text-decoration: none;
   color: black;
@@ -60,7 +69,7 @@ export default {
   font-weight: 400;
   margin: 0;
   font-size: 18px;
-  padding: 10px;
+  padding: 0;
 }
 
 .adminCard img {

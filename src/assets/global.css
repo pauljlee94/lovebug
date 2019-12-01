@@ -29,7 +29,7 @@ body {
 .blogCard {
   position: relative;
   padding: 0px;
-  margin: 40px 0 40px 0;
+  margin: 20px 0 20px 0;
 }
 .blogCard .el-card__header {
   padding: 10px 15px 10px 15px;
@@ -40,7 +40,7 @@ body {
   font-weight: 500;
 }
 .blogCard .postDate {
-  margin: 5px 0 5px 0;
+  margin: 5px 0 0 0;
   color: rgb(156, 156, 156);
 }
 .blogCard .el-card__body {
@@ -48,7 +48,7 @@ body {
   overflow-y: scroll;
   overflow-x: hidden;
   padding: 0px 15px 0px 15px;
-  margin: 10px 0 38px 0;
+  margin: 5px 0 45px 0;
 }
 .blogCard p {
   font-size: 14px;
@@ -109,8 +109,9 @@ body {
   width: 100%;
 }
 .schedule-card {
-  margin: 20px 0 20px 0;
+  margin: 10px 0 10px 0;
   width: 95%;
+  /* height: 70px; */
 }
 .schedule-card p {
   margin: 0;
@@ -122,10 +123,26 @@ body {
   /* padding: 0 10px 0 10px; */
   font-size: 17px;
 }
+.schedule-card .details {
+  margin: 13px;
+}
+.schedule-card .nav {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.schedule-card .nav .el-button {
+  width: 70px;
+  margin: 0;
+  height: 50%;
+}
 
 .schedule-card .el-card__body {
-  padding: 17px;
-  height: 120px;
+  padding: 0px;
+  display: flex;
+  justify-content: space-between;
+  height: 70px;
 }
 
 /* uploadform */

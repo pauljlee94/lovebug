@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import firebase from "firebase";
+import firebase from "firebase"
 
 export default {
   name: "BlogCard",
@@ -25,11 +25,11 @@ export default {
   data() {
     return {
       authenticated: false
-    };
+    }
   },
   computed: {
     formattedDate: function() {
-      const dateObj = new Date(this.time);
+      const dateObj = new Date(this.time)
       const monthNames = [
         "January",
         "February",
@@ -43,25 +43,24 @@ export default {
         "October",
         "November",
         "December"
-      ];
-      const year = dateObj.getFullYear();
-      const month = dateObj.getMonth();
-      const date = dateObj.getDate();
+      ]
+      const year = dateObj.getFullYear()
+      const month = dateObj.getMonth()
+      const date = dateObj.getDate()
 
-      return monthNames[month] + " " + date + ", " + year;
+      return monthNames[month] + " " + date + ", " + year
     }
   },
   beforeMount() {
-    const currentUser = firebase.auth().currentUser;
-    if (currentUser) this.authenticated = true;
+    const currentUser = firebase.auth().currentUser
+    if (currentUser) this.authenticated = true
   },
   methods: {
     viewPost() {
-      this.$router.push("/admin/blog/" + this.id);
+      this.$router.push("/admin/blog/" + this.id)
     }
   }
-};
+}
 </script>
 
-<style>
-</style>
+<style></style>
