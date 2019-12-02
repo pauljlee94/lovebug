@@ -130,10 +130,10 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
+  width: 60px;
 }
 
 .schedule-card .nav .el-button {
-  width: 70px;
   margin: 0;
   height: 50%;
 }

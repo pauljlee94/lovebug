@@ -59,6 +59,7 @@
 
 <script>
 import firebase from "firebase"
+// import { db } from "../../main"
 
 export default {
   name: "NewPortfolio",
@@ -121,6 +122,14 @@ export default {
             this.$refs.upload.uploadFiles = []
           }
         })
+        // PUT NEW URL INTO DATASTORE IF DATA WITH SRC DOES NOT EXIST
+        // if (SRC DOES NOT EXIST) {
+        //   db.collection("image").add({
+        //     category: this.category,
+        //     src: `https://firebasestorage.googleapis.com/v0/b/lovebug-a27e6.appspot.com/o/test%2F${file.name}?alt=media`,
+        //     time: new Date().getTime()
+        //   })
+        // }
       })
     }
   },

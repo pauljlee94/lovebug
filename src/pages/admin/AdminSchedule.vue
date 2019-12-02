@@ -23,7 +23,7 @@
           <div class="nav">
             <el-button
               size="mini"
-              @click="deleteEvent(appointment.id)"
+              @click=";(dialogVisible = true), getData(appointment.id)"
               type="primary"
             >
               <i class="el-icon-edit"></i>
@@ -39,6 +39,25 @@
         </el-card>
       </el-timeline-item>
     </el-timeline>
+    <el-dialog
+      id="event-dialog"
+      title="Event Details"
+      :visible.sync="dialogVisible"
+      @close="resetDialog"
+    >
+      <el-input v-model="dialogData.name" />
+      <el-input v-model="dialogData.email" />
+      <datepicker class="dialogDatpicker" v-model="dialogData.time" />
+      <el-input
+        v-model="dialogData.notes"
+        placeholder="notes"
+        type="textarea"
+        :rows="15"
+      />
+      <el-button type="primary" @click="updateData(dialogData.id)"
+        >Update</el-button
+      >
+    </el-dialog>
   </div>
 </template>
 
@@ -50,15 +69,89 @@ export default {
   name: "AdminSchedule",
   data() {
     return {
+      dialogVisible: false,
       appointmentDate: new Date(),
       highlighted: {
         dates: []
       },
-      appointments: []
+      appointments: [],
+      dialogData: {
+        id: "",
+        name: "",
+        email: "",
+        time: 0,
+        notes: ""
+      }
     }
   },
   components: { Datepicker },
   methods: {
+    updateData(id) {
+      const ref = db.collection("appointments").doc(id)
+      ref.set({
+        name: this.dialogData.name,
+        email: this.dialogData.email,
+        time: new Date(this.dialogData.time).getTime(),
+        notes: this.dialogData.notes
+      })
+      this.dialogVisible = false
+      this.dialogData = {
+        id: "",
+        name: "",
+        email: "",
+        time: 0,
+        notes: ""
+      }
+      //reset appointments and highlighted data
+      //NEED TO REFACTOR
+      this.appointments = []
+      this.highlighted.dates = []
+      const newref = db.collection("appointments").orderBy("time")
+      newref.get().then(appointments => {
+        appointments.forEach(appointment => {
+          const data = appointment.data()
+          data.id = appointment.id
+          this.appointments.push(data)
+          this.appointments.forEach(appointment => {
+            const dateObj = new Date(appointment.time)
+            this.highlighted.dates.push(dateObj)
+            const monthNames = [
+              "January",
+              "February",
+              "March",
+              "April",
+              "May",
+              "June",
+              "July",
+              "August",
+              "September",
+              "October",
+              "November",
+              "December"
+            ]
+            const year = dateObj.getFullYear()
+            const month = dateObj.getMonth()
+            const date = dateObj.getDate()
+
+            appointment.time = monthNames[month] + " " + date + " " + year
+          })
+        })
+      })
+    },
+    resetDialog() {
+      this.dialogData = { name: "", email: "" }
+    },
+    getData(id) {
+      this.dialogData.id = id
+      const ref = db.collection("appointments").doc(id)
+      ref.get().then(appointment => {
+        const data = appointment.data()
+        this.dialogData.name = data.name
+        this.dialogData.email = data.email
+        this.dialogData.time = data.time
+        this.dialogData.notes = data.notes
+      })
+    },
     deleteEvent(id) {
       const index = this.appointments
         .map(appointment => appointment.id)
@@ -112,4 +205,35 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+#event-dialog .el-dialog {
+  margin-top: 5vh !important;
+  width: 90vw;
+  height: 90vh;
+}
+#event-dialog .el-input {
+  margin-bottom: 20px;
+}
+#event-dialog .el-textarea {
+  margin-bottom: 20px;
+}
+#event-dialog .el-button {
+  width: 100%;
+}
+.dialogDatpicker {
+  border-radius: 4px;
+  border: 1px solid #dcdfe6;
+
+  margin-bottom: 20px;
+}
+.dialogDatpicker input {
+  color: #606266;
+  width: 100%;
+  padding: 50px;
+  border: none;
+  font-size: 14px;
+  padding: 0 15px;
+  height: 40px;
+  line-height: 40px;
+}
+</style>
