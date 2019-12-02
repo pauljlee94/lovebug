@@ -16,15 +16,7 @@
             class="el-icon-s-unfold"
             @click="handleMenuClick"
           ></i>
-          <i
-            v-if="!isCollapse"
-            class="el-icon-s-fold"
-            @click="handleMenuClick"
-          ></i>
-
-          <!-- <span>
-            <a href="/">Lovebug & Co.</a>
-          </span>-->
+          <i v-else class="el-icon-s-fold" @click="handleMenuClick"></i>
         </el-menu-item>
         <el-menu-item index="1">
           <a href="/">

@@ -4,31 +4,31 @@
       <div slot="header" class="clearfix">
         <h2 class="cardTitle">Manage Blog</h2>
       </div>
-      <a href="">
+      <router-link to="/admin/blog">
         <div class="image blog">
           <img src="../../assets/images/pencil.jpg" />
         </div>
-      </a>
+      </router-link>
     </el-card>
     <el-card class="adminCard">
       <div slot="header" class="clearfix">
         <h2 class="cardTitle">Manage Portfolio</h2>
       </div>
-      <a href="">
+      <router-link to="/admin/portfolio">
         <div class="image portfolio">
           <img src="../../assets/images/camera.jpg" />
         </div>
-      </a>
+      </router-link>
     </el-card>
     <el-card class="adminCard">
       <div slot="header" class="clearfix">
         <h2 class="cardTitle">Manage Schedule</h2>
       </div>
-      <a href="">
-        <div class="image 3">
+      <router-link to="/admin/schedule">
+        <div class="image schedule">
           <img src="../../assets/images/clock.jpg" />
         </div>
-      </a>
+      </router-link>
     </el-card>
   </div>
 </template>
