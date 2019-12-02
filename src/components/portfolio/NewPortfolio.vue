@@ -59,12 +59,13 @@
 
 <script>
 import firebase from "firebase"
-// import { db } from "../../main"
+import { db } from "../../main"
 
 export default {
   name: "NewPortfolio",
   data() {
     return {
+      databaseImages: [],
       fileList: [],
       disabled: true,
       uploading: false,
@@ -89,6 +90,14 @@ export default {
         }
       ]
     }
+  },
+  created() {
+    const databaseRef = db.collection("images")
+    databaseRef.get().then(images => {
+      images.forEach(image => {
+        this.databaseImages.push(image.data().name)
+      })
+    })
   },
   methods: {
     closeNotification() {
@@ -122,14 +131,20 @@ export default {
             this.$refs.upload.uploadFiles = []
           }
         })
-        // PUT NEW URL INTO DATASTORE IF DATA WITH SRC DOES NOT EXIST
-        // if (SRC DOES NOT EXIST) {
-        //   db.collection("image").add({
-        //     category: this.category,
-        //     src: `https://firebasestorage.googleapis.com/v0/b/lovebug-a27e6.appspot.com/o/test%2F${file.name}?alt=media`,
-        //     time: new Date().getTime()
-        //   })
-        // }
+
+        if (this.databaseImages.indexOf(file.name) === -1) {
+          const databaseRef = db.collection("images")
+          databaseRef.add({
+            category: this.category,
+            name: file.name,
+            time: new Date().getTime()
+          })
+          databaseRef.get().then(images => {
+            images.forEach(image => {
+              this.databaseImages.push(image.data().name)
+            })
+          })
+        }
       })
     }
   },

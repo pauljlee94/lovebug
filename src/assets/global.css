@@ -92,6 +92,9 @@ body {
 .admin-nav:not(.el-menu--collapse) {
   width: 100vw;
 }
+.admin-nav.el-menu--collapse span {
+  display: none;
+}
 .admin-nav .el-menu-item {
   padding-left: 10px !important;
 }

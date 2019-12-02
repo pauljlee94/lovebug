@@ -8,15 +8,10 @@
     <!-- <img
         class="image"
         src="https://firebasestorage.googleapis.com/v0/b/lovebug-a27e6.appspot.com/o/test%2F{{NAME HERE}}?alt=media"
-      /> -->
+    />-->
     <el-carousel trigger="click" :autoplay="false">
       <el-carousel-item v-for="(image, index) in images.test" :key="index">
-        <img :src="image.src" />
-      </el-carousel-item>
-    </el-carousel>
-    <el-carousel trigger="click" :autoplay="false">
-      <el-carousel-item v-for="(image, index) in images.test2" :key="index">
-        <img :src="image.src" />
+        <img :src="image" />
       </el-carousel-item>
     </el-carousel>
   </div>
@@ -24,32 +19,31 @@
 
 <script>
 // import firebase from "firebase"
-import { db } from "../../main"
+import { db } from "../../main";
 
 export default {
   name: "AdminPortfolio",
   data() {
     return {
       images: {
-        test: [],
-        test2: []
+        test: []
       }
-    }
+    };
   },
   created() {
-    const databaseRef = db.collection("images").orderBy("time")
+    const databaseRef = db.collection("images").orderBy("time");
     databaseRef.get().then(images => {
       images.forEach(image => {
-        const data = image.data()
+        const data = image.data();
         if (data.category === "test") {
-          this.images.test.push(data)
-        } else if (data.category === "test2") {
-          this.images.test2.push(data)
+          this.images.test.push(
+            `https://firebasestorage.googleapis.com/v0/b/lovebug-a27e6.appspot.com/o/test%2F${data.name}?alt=media`
+          );
         }
-      })
-    })
+      });
+    });
   }
-}
+};
 </script>
 
 <style scoped>
@@ -57,10 +51,17 @@ export default {
   height: 300px;
   width: 100%;
 }
+.el-carousel__item {
+  height: 100%;
+  /* position: relative; */
+  overflow: hidden;
+  /* text-align: center; */
+}
 
 .el-carousel img {
-  max-width: 100%;
-  width: auto;
-  height: auto;
+  max-height: 100%;
+  /* width: 100%; */
+  margin-left: 50%;
+  transform: translateX(-50%);
 }
 </style>

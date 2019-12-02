@@ -28,11 +28,7 @@
             >
               <i class="el-icon-edit"></i>
             </el-button>
-            <el-button
-              size="mini"
-              @click="deleteEvent(appointment.id)"
-              type="danger"
-            >
+            <el-button size="mini" @click="deleteEvent(appointment.id)" type="danger">
               <i class="el-icon-delete"></i>
             </el-button>
           </div>
@@ -48,22 +44,15 @@
       <el-input v-model="dialogData.name" />
       <el-input v-model="dialogData.email" />
       <datepicker class="dialogDatpicker" v-model="dialogData.time" />
-      <el-input
-        v-model="dialogData.notes"
-        placeholder="notes"
-        type="textarea"
-        :rows="15"
-      />
-      <el-button type="primary" @click="updateData(dialogData.id)"
-        >Update</el-button
-      >
+      <el-input v-model="dialogData.notes" placeholder="notes" type="textarea" :rows="15" />
+      <el-button type="primary" @click="updateData(dialogData.id)">Update</el-button>
     </el-dialog>
   </div>
 </template>
 
 <script>
-import { db } from "../../main"
-import Datepicker from "vuejs-datepicker"
+import { db } from "../../main";
+import Datepicker from "vuejs-datepicker";
 
 export default {
   name: "AdminSchedule",
@@ -82,39 +71,39 @@ export default {
         time: 0,
         notes: ""
       }
-    }
+    };
   },
   components: { Datepicker },
   methods: {
     updateData(id) {
-      const ref = db.collection("appointments").doc(id)
+      const ref = db.collection("appointments").doc(id);
       ref.set({
         name: this.dialogData.name,
         email: this.dialogData.email,
         time: new Date(this.dialogData.time).getTime(),
         notes: this.dialogData.notes
-      })
-      this.dialogVisible = false
+      });
+      this.dialogVisible = false;
       this.dialogData = {
         id: "",
         name: "",
         email: "",
         time: 0,
         notes: ""
-      }
+      };
       //reset appointments and highlighted data
       //NEED TO REFACTOR
-      this.appointments = []
-      this.highlighted.dates = []
-      const newref = db.collection("appointments").orderBy("time")
+      this.appointments = [];
+      this.highlighted.dates = [];
+      const newref = db.collection("appointments").orderBy("time");
       newref.get().then(appointments => {
         appointments.forEach(appointment => {
-          const data = appointment.data()
-          data.id = appointment.id
-          this.appointments.push(data)
+          const data = appointment.data();
+          data.id = appointment.id;
+          this.appointments.push(data);
           this.appointments.forEach(appointment => {
-            const dateObj = new Date(appointment.time)
-            this.highlighted.dates.push(dateObj)
+            const dateObj = new Date(appointment.time);
+            this.highlighted.dates.push(dateObj);
             const monthNames = [
               "January",
               "February",
@@ -128,35 +117,35 @@ export default {
               "October",
               "November",
               "December"
-            ]
-            const year = dateObj.getFullYear()
-            const month = dateObj.getMonth()
-            const date = dateObj.getDate()
+            ];
+            const year = dateObj.getFullYear();
+            const month = dateObj.getMonth();
+            const date = dateObj.getDate();
 
-            appointment.time = monthNames[month] + " " + date + " " + year
-          })
-        })
-      })
+            appointment.time = monthNames[month] + " " + date + " " + year;
+          });
+        });
+      });
     },
     resetDialog() {
-      this.dialogData = { name: "", email: "" }
+      this.dialogData = { name: "", email: "" };
     },
     getData(id) {
-      this.dialogData.id = id
-      const ref = db.collection("appointments").doc(id)
+      this.dialogData.id = id;
+      const ref = db.collection("appointments").doc(id);
       ref.get().then(appointment => {
-        const data = appointment.data()
-        this.dialogData.name = data.name
-        this.dialogData.email = data.email
-        this.dialogData.time = data.time
-        this.dialogData.notes = data.notes
-      })
+        const data = appointment.data();
+        this.dialogData.name = data.name;
+        this.dialogData.email = data.email;
+        this.dialogData.time = data.time;
+        this.dialogData.notes = data.notes;
+      });
     },
     deleteEvent(id) {
       const index = this.appointments
         .map(appointment => appointment.id)
-        .indexOf(id)
-      this.appointments.splice(index, 1)
+        .indexOf(id);
+      this.appointments.splice(index, 1);
       db.collection("appointments")
         .doc(id)
         .delete()
@@ -165,20 +154,20 @@ export default {
         })
         .catch(error => {
           //console.error("Error removing document:", error);
-          return error
-        })
+          return error;
+        });
     }
   },
   created() {
-    const ref = db.collection("appointments").orderBy("time")
+    const ref = db.collection("appointments").orderBy("time");
     ref.get().then(appointments => {
       appointments.forEach(appointment => {
-        const data = appointment.data()
-        data.id = appointment.id
-        this.appointments.push(data)
+        const data = appointment.data();
+        data.id = appointment.id;
+        this.appointments.push(data);
         this.appointments.forEach(appointment => {
-          const dateObj = new Date(appointment.time)
-          this.highlighted.dates.push(dateObj)
+          const dateObj = new Date(appointment.time);
+          this.highlighted.dates.push(dateObj);
           const monthNames = [
             "January",
             "February",
@@ -192,24 +181,31 @@ export default {
             "October",
             "November",
             "December"
-          ]
-          const year = dateObj.getFullYear()
-          const month = dateObj.getMonth()
-          const date = dateObj.getDate()
+          ];
+          const year = dateObj.getFullYear();
+          const month = dateObj.getMonth();
+          const date = dateObj.getDate();
 
-          appointment.time = monthNames[month] + " " + date + " " + year
-        })
-      })
-    })
+          appointment.time = monthNames[month] + " " + date + " " + year;
+        });
+      });
+    });
   }
-}
+};
 </script>
 
 <style>
+#event-dialog {
+  height: 100vh;
+  overflow-y: hidden;
+}
 #event-dialog .el-dialog {
   margin-top: 5vh !important;
   width: 90vw;
   height: 90vh;
+}
+#event-dialog .el-dialog__body {
+  padding-top: 10px;
 }
 #event-dialog .el-input {
   margin-bottom: 20px;

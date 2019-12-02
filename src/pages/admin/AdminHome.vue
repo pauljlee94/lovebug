@@ -5,9 +5,9 @@
         <h2 class="cardTitle">Manage Blog</h2>
       </div>
       <router-link to="/admin/blog">
-        <div class="image blog">
-          <img src="../../assets/images/pencil.jpg" />
-        </div>
+        <!-- <div class="image blog"> -->
+        <img src="../../assets/images/pencil.jpg" />
+        <!-- </div> -->
       </router-link>
     </el-card>
     <el-card class="adminCard">
@@ -15,9 +15,9 @@
         <h2 class="cardTitle">Manage Portfolio</h2>
       </div>
       <router-link to="/admin/portfolio">
-        <div class="image portfolio">
-          <img src="../../assets/images/camera.jpg" />
-        </div>
+        <!-- <div class="image portfolio"> -->
+        <img src="../../assets/images/camera.jpg" />
+        <!-- </div> -->
       </router-link>
     </el-card>
     <el-card class="adminCard">
@@ -25,9 +25,9 @@
         <h2 class="cardTitle">Manage Schedule</h2>
       </div>
       <router-link to="/admin/schedule">
-        <div class="image schedule">
-          <img src="../../assets/images/clock.jpg" />
-        </div>
+        <!-- <div class="image schedule"> -->
+        <img src="../../assets/images/clock.jpg" />
+        <!-- </div> -->
       </router-link>
     </el-card>
   </div>
@@ -37,7 +37,7 @@
 export default {
   name: "Admin",
   components: {}
-}
+};
 </script>
 
 <style>
@@ -46,7 +46,13 @@ export default {
   margin: 20px 0;
 }
 .adminCard .el-card__body {
+  position: relative;
   padding: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  height: 150px; /* or other desired height */
+  overflow: hidden;
 }
 .adminCard .el-card__header {
   padding: 10px;
@@ -55,6 +61,8 @@ export default {
 .adminCard a {
   text-decoration: none;
   color: black;
+  width: 100%;
+  flex: none;
 }
 .adminCard .image {
   display: inline-block;
@@ -73,9 +81,13 @@ export default {
 }
 
 .adminCard img {
-  display: inline-block;
+  /* display: inline-block; */
   width: 100%;
-  object-fit: contain;
-  transform: translateY(-20%);
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin: auto;
 }
 </style>
