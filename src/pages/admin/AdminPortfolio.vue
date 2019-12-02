@@ -46,8 +46,6 @@ export default {
         } else if (data.category === "test2") {
           this.images.test2.push(data)
         }
-
-        console.log(this.images.test)
       })
     })
   }
@@ -58,8 +56,6 @@ export default {
 .el-carousel {
   height: 300px;
   width: 100%;
-}
-.el-carousel__item {
 }
 
 .el-carousel img {
