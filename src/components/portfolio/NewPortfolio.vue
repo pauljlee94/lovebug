@@ -155,6 +155,7 @@ export default {
 <style>
 .el-alert {
   position: fixed;
+  height: 50px;
   top: 0;
   left: 0;
   right: 0;
