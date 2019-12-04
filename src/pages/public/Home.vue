@@ -1,7 +1,7 @@
 <template>
   <layout-default>
     <div id="home">
-      <masonry :cols="{ default: 3, 900: 2, 400: 1 }" :gutter="10">
+      <masonry :cols="{ default: 3, 900: 2, 550: 1 }" :gutter="10">
         <div class="item" v-for="(image, index) in images.test" :key="index">
           <img :src="image" />
         </div>
