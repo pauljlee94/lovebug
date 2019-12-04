@@ -3,10 +3,13 @@
     <div v-if="!scheduled">
       <form @submit="updateData">
         <label for="name">Name</label>
-        <input v-model="name" id="name" type="text" required />
-        <label for="name">Email</label>
-        <input v-model="email" id="email" type="text" required />
-        <datepicker v-model="appointmentDate" :disabled-dates="disabledDates" />
+        <el-input v-model="name" id="name" type="text" required />
+        <label for="email">Email</label>
+        <el-input v-model="email" id="email" type="text" required />
+        <label for="datpicker">Dates</label>
+        <datepicker v-model="appointmentDate" id="datpicker" :disabled-dates="disabledDates" />
+        <label for="name">Notes</label>
+        <el-input v-model="notes" id="notes" type="textarea" required />
         <button>Book Me!</button>
       </form>
     </div>
@@ -17,8 +20,8 @@
 </template>
 
 <script>
-import { db } from "../../main"
-import Datepicker from "vuejs-datepicker"
+import { db } from "../../main";
+import Datepicker from "vuejs-datepicker";
 
 export default {
   name: "Scheduler",
@@ -29,26 +32,27 @@ export default {
     return {
       name: "",
       email: "",
+      notes: "",
       scheduled: false,
       appointmentDate: new Date(),
       disabledDates: {
         to: new Date(Date.now() - 86400000),
         dates: []
       }
-    }
+    };
   },
   created() {
-    const appointmentsRef = db.collection("appointments")
+    const appointmentsRef = db.collection("appointments");
     appointmentsRef.get().then(appointments => {
       appointments.forEach(appointment => {
-        const time = new Date(appointment.data().time)
-        this.disabledDates.dates.push(time)
-      })
-    })
+        const time = new Date(appointment.data().time);
+        this.disabledDates.dates.push(time);
+      });
+    });
   },
   methods: {
     updateData() {
-      this.scheduled = true
+      this.scheduled = true;
       db.collection("appointments")
         .add({
           name: this.name,
@@ -61,14 +65,14 @@ export default {
         })
         .catch(error => {
           //console.error(`Error adding document: ${error}`);
-          return error
-        })
+          return error;
+        });
     }
   },
   components: {
     Datepicker
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

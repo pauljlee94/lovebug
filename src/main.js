@@ -3,9 +3,11 @@ import firebase from "firebase"
 import "firebase/firestore"
 import firebaseConfig from "../firebase.config"
 import ElementUI from "element-ui"
+import VueMasonry from "vue-masonry-css"
 import "element-ui/lib/theme-chalk/index.css"
 import "@/assets/global.css"
 
+Vue.use(VueMasonry)
 import App from "./App.vue"
 import router from "./router"
 
@@ -16,6 +18,7 @@ export const db = firebaseApp.firestore()
 firebase.analytics()
 
 Vue.use(ElementUI)
+Vue.use(VueMasonry)
 
 let app
 

@@ -21,37 +21,37 @@
           </el-menu-item>
         </router-link>
         <router-link to="/admin/blog">
-          <el-menu-item index="2" @click="handleMenuClick">
+          <el-menu-item index="2" @click="closeMenu">
             <i class="el-icon-collection"></i>
             <span>Blog</span>
           </el-menu-item>
         </router-link>
         <router-link to="/admin/portfolio">
-          <el-menu-item index="3" @click="handleMenuClick">
+          <el-menu-item index="3" @click="closeMenu">
             <i class="el-icon-picture-outline"></i>
             <span>Portfolio</span>
           </el-menu-item>
         </router-link>
         <router-link to="/admin/schedule">
-          <el-menu-item index="4" @click="handleMenuClick">
+          <el-menu-item index="4" @click="closeMenu">
             <i class="el-icon-date"></i>
             <span>Schedule</span>
           </el-menu-item>
         </router-link>
         <router-link to="/admin/blog/new">
-          <el-menu-item index="5" @click="handleMenuClick">
+          <el-menu-item index="5" @click="closeMenu">
             <i class="el-icon-tickets"></i>
             <span>New Post</span>
           </el-menu-item>
         </router-link>
         <router-link to="/admin/portfolio/new">
-          <el-menu-item index="6" @click="handleMenuClick">
+          <el-menu-item index="6" @click="closeMenu">
             <i class="el-icon-camera"></i>
             <span>New Photo</span>
           </el-menu-item>
         </router-link>
         <a @click="logoutDialogVisible = true">
-          <el-menu-item index="7" @click="handleMenuClick">
+          <el-menu-item index="7" @click="closeMenu">
             <i class="el-icon-error"></i>
             <span>Log out</span>
           </el-menu-item>
@@ -101,6 +101,9 @@ export default {
     },
     handleMenuClick() {
       this.isCollapse = !this.isCollapse;
+    },
+    closeMenu() {
+      this.isCollapse = true;
     }
   },
   props: {

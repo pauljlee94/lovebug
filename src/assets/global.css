@@ -87,7 +87,6 @@ body {
   position: fixed;
   width: 45px;
   z-index: 1000;
-  /* width: 45px; */
 }
 .admin-nav:not(.el-menu--collapse) {
   width: 100vw;

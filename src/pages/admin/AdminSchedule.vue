@@ -216,13 +216,13 @@ export default {
 #event-dialog .el-button {
   width: 100%;
 }
-.dialogDatpicker {
+.vdp-datepicker {
   border-radius: 4px;
   border: 1px solid #dcdfe6;
 
   margin-bottom: 20px;
 }
-.dialogDatpicker input {
+.vdp-datepicker input {
   color: #606266;
   width: 100%;
   padding: 50px;

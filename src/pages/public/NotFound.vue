@@ -1,7 +1,7 @@
 <template>
   <div id="404">
     <h1>404</h1>
-    <router-link to="/">Back to home</router-link>
+    <a href="javascript:history.go(-1)">Back</a>
   </div>
 </template>
 
@@ -12,7 +12,7 @@ export default {
     //data here
   },
   components: {}
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
