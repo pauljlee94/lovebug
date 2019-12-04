@@ -41,10 +41,14 @@
       :visible.sync="dialogVisible"
       @close="resetDialog"
     >
-      <el-input v-model="dialogData.name" />
-      <el-input v-model="dialogData.email" />
-      <datepicker class="dialogDatpicker" v-model="dialogData.time" />
-      <el-input v-model="dialogData.notes" placeholder="notes" type="textarea" :rows="15" />
+      <div class="input_container">
+        <el-input v-model="dialogData.name" />
+        <el-input v-model="dialogData.email" />
+        <datepicker class="dialogDatpicker" v-model="dialogData.time" />
+      </div>
+      <div class="textarea_container">
+        <el-input class="textarea" v-model="dialogData.notes" placeholder="notes" type="textarea" />
+      </div>
       <el-button type="primary" @click="updateData(dialogData.id)">Update</el-button>
     </el-dialog>
   </div>
@@ -200,12 +204,16 @@ export default {
   overflow-y: hidden;
 }
 #event-dialog .el-dialog {
-  margin-top: 5vh !important;
-  width: 90vw;
-  height: 90vh;
+  margin-top: 0 !important;
+  width: 100vw;
+  height: 100vh;
+}
+#event-dialog .el-dialog__header {
+  height: 10%;
 }
 #event-dialog .el-dialog__body {
   padding-top: 10px;
+  height: 90%;
 }
 #event-dialog .el-input {
   margin-bottom: 20px;
@@ -231,5 +239,17 @@ export default {
   padding: 0 15px;
   height: 40px;
   line-height: 40px;
+}
+.input_container {
+  height: 190px;
+}
+.textarea_container {
+  height: 50%;
+}
+.textarea {
+  height: 100%;
+}
+.textarea textarea {
+  height: 90%;
 }
 </style>
