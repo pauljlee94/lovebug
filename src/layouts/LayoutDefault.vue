@@ -54,12 +54,13 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
 .default-main {
-  margin: 0 2% 0 25%;
+  margin: 0 2% 0 22%;
 }
 .default-nav {
   top: 0;
+  padding-top: 10px;
   /* border: none; */
-  width: 23%;
+  width: 20%;
   height: 100%;
   position: fixed;
 }
