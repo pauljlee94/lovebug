@@ -7,6 +7,7 @@ import firebaseConfig from "../firebase.config"
 import ElementUI from "element-ui"
 import VueMasonry from "vue-masonry-css"
 import VueLazyload from "vue-lazyload"
+import VueImg from "v-img"
 
 import "element-ui/lib/theme-chalk/index.css"
 import "@/assets/global.css"
@@ -16,15 +17,16 @@ import router from "./router"
 
 Vue.config.productionTip = false
 
+// console.log(firebaseConfig)
+
 const firebaseApp = firebase.initializeApp(firebaseConfig)
 export const db = firebaseApp.firestore()
 firebase.analytics()
-import VueImg from "v-img"
 
-Vue.use(VueImg)
 Vue.use(ElementUI)
 Vue.use(VueMasonry)
 Vue.use(VueLazyload)
+Vue.use(VueImg)
 
 let app
 

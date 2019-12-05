@@ -57,7 +57,7 @@ export default {
       this.images = photos
       photos.forEach(photo => {
         this.srcList.push(photo.url_c)
-        console.log(this.srcList)
+        // console.log(this.srcList)
       })
     })
   }

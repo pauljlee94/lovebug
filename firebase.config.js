@@ -1,12 +1,14 @@
 const firebaseConfig = {
-  apiKey: "AIzaSyAAFG7Y4EQ8AZjVmU37MCmWwmRg-b1Ymn8",
-  authDomain: "lovebug-a27e6.firebaseapp.com",
-  databaseURL: "https://lovebug-a27e6.firebaseio.com",
-  projectId: "lovebug-a27e6",
-  storageBucket: "lovebug-a27e6.appspot.com",
-  messagingSenderId: "616431744527",
-  appId: "1:616431744527:web:4b7ddad704971bd4d0157a",
-  measurementId: "G-6M7V9XPJWN"
+  apiKey: process.env.VUE_APP_FIREBASE_API_KEY,
+  authDomain: process.env.VUE_APP_FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.VUE_APP_FIREBASE_DATABASE_URL,
+  projectId: process.env.VUE_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.VUE_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.VUE_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.VUE_APP_FIREBASE_APP_ID,
+  measurementId: process.env.VUE_APP_FIREBASE_MEASUREMENT_ID
 }
 
+console.log(process.env.NODE_ENV)
+console.log(process.env.VUE_APP_FIREBASE_API_KEY)
 export default firebaseConfig
