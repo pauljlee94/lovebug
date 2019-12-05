@@ -9,6 +9,4 @@ const firebaseConfig = {
   measurementId: process.env.VUE_APP_FIREBASE_MEASUREMENT_ID
 }
 
-console.log(process.env.NODE_ENV)
-console.log(process.env.VUE_APP_FIREBASE_API_KEY)
 export default firebaseConfig

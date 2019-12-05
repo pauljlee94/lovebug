@@ -17,8 +17,6 @@ import router from "./router"
 
 Vue.config.productionTip = false
 
-// console.log(firebaseConfig)
-
 const firebaseApp = firebase.initializeApp(firebaseConfig)
 export const db = firebaseApp.firestore()
 firebase.analytics()
