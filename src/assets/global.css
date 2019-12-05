@@ -1,9 +1,16 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Solway:400,500&display=swap");
+
 * {
   font-family: "Roboto", sans-serif;
   box-sizing: border-box;
 }
 
+#default-nav span {
+  font-family: "Solway", serif;
+  font-weight: 500;
+  color: #303133;
+}
 body {
   height: 100%;
   width: 100%;

@@ -7,10 +7,10 @@
           :src="image.url_c"
           :preview-src-list="srcList"
           lazy
-        ></el-image> -->
+    ></el-image>-->
     <div class="item" v-for="(image, index) in images" :key="index">
       <!-- <img v-lazy="image.url_c" /> -->
-      <img v-lazy="image.url_c" v-img:group :src="image.url_c" />
+      <img v-lazy="image.url_h" v-img:group :src="image.url_h" />
     </div>
   </masonry>
   <!-- </div> -->
@@ -18,8 +18,8 @@
 
 <script>
 // import { db } from "../../main";
-import axios from "axios"
-import flickrConfig from "../../../flickr.config"
+import axios from "axios";
+import flickrConfig from "../../../flickr.config";
 
 // import LayoutDefault from "../../layouts/LayoutDefault.vue"
 
@@ -32,7 +32,7 @@ export default {
     return {
       images: null,
       srcList: []
-    }
+    };
   },
   methods: {
     fetchImages() {
@@ -44,24 +44,25 @@ export default {
           api_key: flickrConfig.api_key,
           user_id: flickrConfig.user_id,
           photoset_id: flickrConfig.test,
-          extras: "url_c",
+          extras: "url_h, date_taken",
           format: "json",
           nojsoncallback: 1
         }
-      })
+      });
     }
   },
   created() {
     this.fetchImages().then(response => {
-      const photos = response.data.photoset.photo
-      this.images = photos
+      const photos = response.data.photoset.photo;
+      this.images = photos;
       photos.forEach(photo => {
-        this.srcList.push(photo.url_c)
-        // console.log(this.srcList)
-      })
-    })
+        this.srcList.push(photo.url_c);
+        //NEED TO ORDER BY NEWEST PICTURE
+        console.log(new Date(photo.datetaken));
+      });
+    });
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
