@@ -6,6 +6,7 @@ import Router from "vue-router"
 import Home from "./pages/public/Home.vue"
 import About from "./pages/public/About.vue"
 import Blog from "./pages/public/Blog.vue"
+import Portfolio from "./pages/public/Portfolio.vue"
 import Contact from "./pages/public/Contact.vue"
 import Login from "./pages/admin/Login.vue"
 import Admin from "./pages/admin/Admin.vue"
@@ -38,6 +39,11 @@ const router = new Router({
       path: "/about",
       name: "about",
       component: About
+    },
+    {
+      path: "/portfolio/:id",
+      name: "Portfolio",
+      component: Portfolio
     },
     {
       path: "/blog",

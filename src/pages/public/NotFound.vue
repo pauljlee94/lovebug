@@ -1,7 +1,8 @@
 <template>
-  <div id="404">
+  <div id="unknownPage">
     <h1>404</h1>
-    <a href="javascript:history.go(-1)">Back</a>
+    <p>This page doesn't exist!</p>
+    <a href="javascript:history.go(-1)">back</a>
   </div>
 </template>
 
@@ -12,8 +13,22 @@ export default {
     //data here
   },
   components: {}
-};
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped></style>
+<style>
+#unknownPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+#unknownPage h1 {
+  font-weight: 400;
+  font-size: 60px;
+  margin: 0;
+}
+</style>
