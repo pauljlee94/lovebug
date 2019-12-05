@@ -1,9 +1,11 @@
 import Vue from "vue"
 
+//Firebase Import
 import firebase from "firebase"
 import "firebase/firestore"
 import firebaseConfig from "../firebase.config"
 
+//Vue Plugins
 import ElementUI from "element-ui"
 import VueMasonry from "vue-masonry-css"
 import VueLazyload from "vue-lazyload"
