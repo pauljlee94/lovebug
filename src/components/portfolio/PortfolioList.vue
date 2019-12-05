@@ -1,19 +1,19 @@
 <template>
-  <div id="home">
-    <masonry :cols="{ default: 3, 900: 2, 550: 1 }" :gutter="10">
-      <!-- <el-image
+  <!-- <div id="home"> -->
+  <masonry id="photoWall" :cols="{ default: 3, 1600: 2, 900: 1 }" :gutter="10">
+    <!-- <el-image
           v-for="(image, index) in images"
           :key="index"
           :src="image.url_c"
           :preview-src-list="srcList"
           lazy
         ></el-image> -->
-      <div class="item" v-for="(image, index) in images" :key="index">
-        <!-- <img v-lazy="image.url_c" /> -->
-        <img v-lazy="image.url_c" v-img:group :src="image.url_c" />
-      </div>
-    </masonry>
-  </div>
+    <div class="item" v-for="(image, index) in images" :key="index">
+      <!-- <img v-lazy="image.url_c" /> -->
+      <img v-lazy="image.url_c" v-img:group :src="image.url_c" />
+    </div>
+  </masonry>
+  <!-- </div> -->
 </template>
 
 <script>
@@ -65,13 +65,16 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-#home {
+<style>
+#photoWall {
   width: 100%;
-  margin-top: 20px;
 }
-.item img {
+#photoWall img {
   margin-bottom: 5px;
   width: 100%;
+}
+
+.fullscreen-v-img .content-v-img img {
+  border: 20px white solid;
 }
 </style>

@@ -76,16 +76,26 @@ export default {
   text-align: center;
 }
 .default-main {
-  margin: 0 2% 0 22%;
+  margin: 70px 0% 0 20%;
 }
 .default-nav {
   top: 0;
-  padding-top: 10px;
+  padding-top: 55px;
   /* border: none; */
-  width: 20%;
+  width: 19%;
   height: 100%;
   position: fixed;
 }
+
+@media screen and (min-width: 1600px) {
+  .default-nav {
+    width: 300px;
+  }
+  .default-main {
+    margin-left: 320px;
+  }
+}
+
 .default-nav a {
   text-decoration: none;
   color: #303133;
