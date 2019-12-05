@@ -56,11 +56,7 @@ export default {
     // NavBar,
     // Footer
   },
-  methods: {
-    test() {
-      console.log("test")
-    }
-  }
+  methods: {}
 }
 </script>
 
