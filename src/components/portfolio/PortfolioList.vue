@@ -69,13 +69,18 @@ export default {
 <style>
 #photoWall {
   width: 100%;
+  margin: 0 !important;
 }
 #photoWall img {
   margin-bottom: 5px;
   width: 100%;
 }
-
 .fullscreen-v-img .content-v-img img {
   border: 20px white solid;
+}
+@media screen and (max-width: 1000px) {
+  .fullscreen-v-img .content-v-img img {
+    border: 10px white solid;
+  }
 }
 </style>
