@@ -1,19 +1,15 @@
 <template>
   <layout-default>
-    <PortfolioList location-id="72157712063324131" />
+    <PortfolioList location-id="72157712079761232" />
   </layout-default>
 </template>
 
 <script>
-// import { db } from "../../main";
-// import axios from "axios"
-// import flickrConfig from "../../../flickr.config"
-
 import LayoutDefault from "../../layouts/LayoutDefault.vue";
 import PortfolioList from "../../components/portfolio/PortfolioList.vue";
 
 export default {
-  name: "Home",
+  name: "PortfolioFamily",
   components: { LayoutDefault, PortfolioList }
 };
 </script>

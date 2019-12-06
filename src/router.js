@@ -6,7 +6,9 @@ import Router from "vue-router"
 import Home from "./pages/public/Home.vue"
 import About from "./pages/public/About.vue"
 import Blog from "./pages/public/Blog.vue"
-import Portfolio from "./pages/public/Portfolio.vue"
+import PortfolioLove from "./pages/public/PortfolioLove.vue"
+import PortfolioFamily from "./pages/public/PortfolioFamily.vue"
+import PortfolioPortraits from "./pages/public/PortfolioPortraits.vue"
 import Contact from "./pages/public/Contact.vue"
 import Login from "./pages/admin/Login.vue"
 import Admin from "./pages/admin/Admin.vue"
@@ -41,9 +43,19 @@ const router = new Router({
       component: About
     },
     {
-      path: "/portfolio/:id",
-      name: "Portfolio",
-      component: Portfolio
+      path: "/portfolio/love",
+      name: "PortfolioLove",
+      component: PortfolioLove
+    },
+    {
+      path: "/portfolio/family",
+      name: "PortfolioFamily",
+      component: PortfolioFamily
+    },
+    {
+      path: "/portfolio/portraits",
+      name: "PortfolioPortraits",
+      component: PortfolioPortraits
     },
     {
       path: "/blog",

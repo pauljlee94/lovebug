@@ -26,13 +26,23 @@
         <div id="menu">
           <el-submenu index="1">
             <template slot="title">
-              <!-- <router-link to="/portfolio"> -->
               <span>work</span>
-              <!-- </router-link> -->
             </template>
-            <el-menu-item index="1-1">
-              <span>item one</span>
-            </el-menu-item>
+            <router-link to="/portfolio/love">
+              <el-menu-item index="1-1">
+                <span>love</span>
+              </el-menu-item>
+            </router-link>
+            <router-link to="/portfolio/family">
+              <el-menu-item index="1-1">
+                <span>family</span>
+              </el-menu-item>
+            </router-link>
+            <router-link to="/portfolio/portraits">
+              <el-menu-item index="1-1">
+                <span>portraits</span>
+              </el-menu-item>
+            </router-link>
           </el-submenu>
           <router-link to="/blog">
             <el-menu-item index="2">

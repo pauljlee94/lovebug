@@ -28,6 +28,7 @@ export default {
   components: {
     // LayoutDefault
   },
+  props: ["location-id"],
   data() {
     return {
       images: null,
@@ -43,7 +44,7 @@ export default {
           method: "flickr.photosets.getPhotos",
           api_key: flickrConfig.api_key,
           user_id: flickrConfig.user_id,
-          photoset_id: flickrConfig.test,
+          photoset_id: this.locationId,
           extras: "url_h, date_taken",
           format: "json",
           nojsoncallback: 1
@@ -58,7 +59,7 @@ export default {
       photos.forEach(photo => {
         this.srcList.push(photo.url_c);
         //NEED TO ORDER BY NEWEST PICTURE
-        console.log(new Date(photo.datetaken));
+        // console.log(new Date(photo.datetaken));
       });
     });
   }
