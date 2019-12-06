@@ -1,22 +1,14 @@
 <template>
-  <layout-default>
-    <PortfolioList location-id="72157712063324131" />
-  </layout-default>
+  <PortfolioList location-id="72157712063324131" />
 </template>
 
 <script>
-// import { db } from "../../main";
-// import axios from "axios"
-// import flickrConfig from "../../../flickr.config"
-
-import LayoutDefault from "../../layouts/LayoutDefault.vue";
 import PortfolioList from "../../components/portfolio/PortfolioList.vue";
 
 export default {
   name: "Home",
-  components: { LayoutDefault, PortfolioList }
+  components: { PortfolioList }
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped></style>
+<style></style>

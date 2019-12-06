@@ -1,22 +1,18 @@
 <template>
-  <layout-default>
-    <div id="contact">
-      <h1>Contact</h1>
-      <Scheduler />
-    </div>
-  </layout-default>
+  <div id="contact">
+    <h1>Contact</h1>
+    <Scheduler />
+  </div>
 </template>
 
 <script>
-import LayoutDefault from "../../layouts/LayoutDefault.vue";
 import Scheduler from "../../components/forms/Scheduler";
 
 export default {
   name: "Contact",
-  props: {
-    //data here
-  },
-  components: { LayoutDefault, Scheduler }
+  components: {
+    Scheduler
+  }
 };
 </script>
 

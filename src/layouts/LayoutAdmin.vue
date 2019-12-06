@@ -60,7 +60,9 @@
     </el-col>
     <el-col class="main-content">
       <main>
-        <router-view></router-view>
+        <transition name="fade" mode="out-in">
+          <router-view />
+        </transition>
       </main>
     </el-col>
     <el-dialog

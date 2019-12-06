@@ -1,8 +1,9 @@
 import Vue from "vue"
 import firebase from "firebase"
-
-//Views
 import Router from "vue-router"
+
+// PAGES
+import Public from "./pages/public/Public.vue"
 import Home from "./pages/public/Home.vue"
 import About from "./pages/public/About.vue"
 import Blog from "./pages/public/Blog.vue"
@@ -34,38 +35,45 @@ const router = new Router({
     },
     {
       path: "/",
-      name: "home",
-      component: Home
-    },
-    {
-      path: "/about",
-      name: "about",
-      component: About
-    },
-    {
-      path: "/portfolio/love",
-      name: "PortfolioLove",
-      component: PortfolioLove
-    },
-    {
-      path: "/portfolio/family",
-      name: "PortfolioFamily",
-      component: PortfolioFamily
-    },
-    {
-      path: "/portfolio/portraits",
-      name: "PortfolioPortraits",
-      component: PortfolioPortraits
-    },
-    {
-      path: "/blog",
-      name: "blog",
-      component: Blog
-    },
-    {
-      path: "/contact",
-      name: "contact",
-      component: Contact
+      name: "public",
+      component: Public,
+      children: [
+        {
+          path: "/",
+          name: "Home",
+          component: Home
+        },
+        {
+          path: "about",
+          name: "about",
+          component: About
+        },
+        {
+          path: "/portfolio/love",
+          name: "PortfolioLove",
+          component: PortfolioLove
+        },
+        {
+          path: "/portfolio/family",
+          name: "PortfolioFamily",
+          component: PortfolioFamily
+        },
+        {
+          path: "/portfolio/portraits",
+          name: "PortfolioPortraits",
+          component: PortfolioPortraits
+        },
+        {
+          path: "/blog",
+          name: "blog",
+          component: Blog
+        },
+        {
+          path: "/contact",
+          name: "contact",
+          component: Contact
+        }
+      ]
     },
     {
       path: "/login",

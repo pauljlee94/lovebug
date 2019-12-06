@@ -1,15 +1,11 @@
 <template>
-  <layout-default>
-    <div id="blog">
-      <h1>Blog</h1>
-
-      <BlogList />
-    </div>
-  </layout-default>
+  <div id="blog">
+    <h1>Blog</h1>
+    <BlogList />
+  </div>
 </template>
 
 <script>
-import LayoutDefault from "../../layouts/LayoutDefault.vue";
 import BlogList from "../../components/blog/BlogList";
 
 export default {
@@ -17,7 +13,7 @@ export default {
   props: {
     //data here
   },
-  components: { LayoutDefault, BlogList }
+  components: { BlogList }
 };
 </script>
 

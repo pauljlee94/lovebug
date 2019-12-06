@@ -1,21 +1,46 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Solway:400,500&display=swap");
 
+/* GLOBAL */
 * {
   font-family: "Roboto", sans-serif;
   box-sizing: border-box;
-}
-
-#default-nav span {
-  font-family: "Solway", serif;
-  font-weight: 400;
-  font-size: 15px;
-  color: #303133;
 }
 body {
   height: 100%;
   width: 100%;
   margin: 0;
+}
+/* ROUTE TRANSITION */
+.fade-enter-active,
+.fade-leave-active {
+  transition-duration: 0.5s;
+  transition-property: opacity;
+  transition-timing-function: ease-in;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
+}
+/* SCROLLBAR */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(185, 185, 185);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(124, 124, 124);
+}
+#default-nav span {
+  font-family: "Solway", serif;
+  font-weight: 400;
+  font-size: 15px;
+  color: #303133;
 }
 
 .quillWrapper {
