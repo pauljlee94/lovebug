@@ -33,16 +33,10 @@
           <el-menu-item index="/contact">contact</el-menu-item>
         </div>
         <div id="social">
-          <a
-            href="https://www.instagram.com/lovebugandco.photography/"
-            target="_blank"
-          >
+          <a href="https://www.instagram.com/lovebugandco.photography/" target="_blank">
             <img src="../assets/icons/instagram.svg" />
           </a>
-          <a
-            href="https://www.facebook.com/heather.cunningham.967"
-            target="_blank"
-          >
+          <a href="https://www.facebook.com/heather.cunningham.967" target="_blank">
             <img src="../assets/icons/facebook.svg" />
           </a>
           <a href="mailto:lovebugandco.photos@gmail.com" target="_blank">
@@ -66,16 +60,15 @@ export default {
   data() {
     return {
       mobile: true
-    }
+    };
   },
-  methods: {},
   mounted() {
-    window.innerWidth <= 1000 ? (this.mobile = true) : (this.mobile = false)
+    window.innerWidth <= 1000 ? (this.mobile = true) : (this.mobile = false);
     window.onresize = () => {
-      window.innerWidth <= 1000 ? (this.mobile = true) : (this.mobile = false)
-    }
+      window.innerWidth <= 1000 ? (this.mobile = true) : (this.mobile = false);
+    };
   }
-}
+};
 </script>
 
 <style>
