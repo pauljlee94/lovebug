@@ -2,9 +2,16 @@
   <div id="blogPost_container">
     <div id="blogPost">
       <h1>{{this.title}}</h1>
-      <a :href="url" target="_blank">FACEBOOK</a>
       <p id="blogPost_date">{{this.time}}</p>
-      <div v-html="content"></div>
+      <div id="blogPost_share">
+        <a :href="facebookURL" target="_blank">
+          <img alt="facebook" src="../../assets/icons/facebook.svg" />
+          <a :href="twitterURL" target="_blank">
+            <img alt="twitter" src="../../assets/icons/twitter.svg" />
+          </a>
+        </a>
+      </div>
+      <div id="blogPost_content" v-html="content"></div>
     </div>
   </div>
 </template>
@@ -19,8 +26,11 @@ export default {
       title: "",
       time: "",
       content: "",
-      url:
-        "https://www.facebook.com/sharer/sharer.php?u=" + document.location.href
+      facebookURL:
+        "https://www.facebook.com/sharer/sharer.php?u=" +
+        document.location.href,
+      twitterURL:
+        "https://twitter.com/intent/tweet?url=" + document.location.href
     };
   },
   methods: {
@@ -70,13 +80,14 @@ export default {
   flex-direction: column;
   align-items: center;
   margin: auto;
-  width: 500px;
+  width: 700px;
 }
 #blogPost h1 {
   margin-bottom: 0;
 }
 #blogPost h1,
 #blogPost_date {
+  font-family: "Solway", serif;
   align-self: flex-start;
 }
 #blogPost_date {
@@ -85,5 +96,22 @@ export default {
 }
 #editor {
   height: 300px;
+}
+#blogPost_share {
+  display: flex;
+  width: 100px;
+  align-self: flex-start;
+  margin-bottom: 20px;
+}
+#blogPost_share img {
+  width: 25px;
+  margin-right: 10px;
+}
+#blogPost_content img {
+  width: 100%;
+}
+#blogPost_content p {
+  font-size: 17px;
+  margin: 0;
 }
 </style>

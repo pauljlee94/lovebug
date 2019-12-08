@@ -34,13 +34,13 @@
         </div>
         <div id="social">
           <a href="https://www.instagram.com/lovebugandco.photography/" target="_blank">
-            <img src="../assets/icons/instagram.svg" />
+            <img alt="instagram" src="../assets/icons/instagram.svg" />
           </a>
           <a href="https://www.facebook.com/heather.cunningham.967" target="_blank">
-            <img src="../assets/icons/facebook.svg" />
+            <img alt="facebook" src="../assets/icons/facebook.svg" />
           </a>
           <a href="mailto:lovebugandco.photos@gmail.com" target="_blank">
-            <img src="../assets/icons/mail.svg" />
+            <img alt="email " src="../assets/icons/mail.svg" />
           </a>
         </div>
       </el-menu>
