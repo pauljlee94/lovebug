@@ -7,6 +7,7 @@ import Public from "./pages/public/Public.vue"
 import Home from "./pages/public/Home.vue"
 import About from "./pages/public/About.vue"
 import Blog from "./pages/public/Blog.vue"
+import BlogPost from "./components/blog/BlogPost.vue"
 import PortfolioLove from "./pages/public/PortfolioLove.vue"
 import PortfolioFamily from "./pages/public/PortfolioFamily.vue"
 import PortfolioPortraits from "./pages/public/PortfolioPortraits.vue"
@@ -16,7 +17,7 @@ import Admin from "./pages/admin/Admin.vue"
 import AdminHome from "./pages/admin/AdminHome.vue"
 import AdminBlog from "./pages/admin/AdminBlog.vue"
 import NewBlogPost from "./components/blog/NewBlogPost.vue"
-import BlogPost from "./components/blog/BlogPost.vue"
+import AdminBlogPost from "./components/blog/AdminBlogPost.vue"
 import AdminPortfolio from "./pages/admin/AdminPortfolio.vue"
 import NewPortfolio from "./components/portfolio/NewPortfolio.vue"
 import AdminSchedule from "./pages/admin/AdminSchedule.vue"
@@ -69,6 +70,11 @@ const router = new Router({
           component: Blog
         },
         {
+          path: "/blog/:id",
+          name: "blogPost",
+          component: BlogPost
+        },
+        {
           path: "/contact",
           name: "contact",
           component: Contact
@@ -110,8 +116,8 @@ const router = new Router({
         },
         {
           path: "blog/:id",
-          name: "BlogPost",
-          component: BlogPost
+          name: "AdminBlogPost",
+          component: AdminBlogPost
         },
         {
           path: "portfolio",

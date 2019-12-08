@@ -29,7 +29,7 @@ export default {
       blogPosts.forEach(blogPost => {
         const data = blogPost.data();
         data.id = blogPost.id;
-        this.blogPosts.push(data);
+        this.blogPosts.unshift(data);
       });
     });
   },

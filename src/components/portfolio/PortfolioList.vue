@@ -13,17 +13,17 @@
 </template>
 
 <script>
-import axios from "axios"
-import flickrConfig from "../../../flickr.config"
+import axios from "axios";
+import flickrConfig from "../../../flickr.config";
 
 export default {
   name: "PortfolioList",
   props: ["location-id"],
   data() {
     return {
-      images: null,
+      images: [],
       srcList: []
-    }
+    };
   },
   methods: {
     fetchImages() {
@@ -39,21 +39,21 @@ export default {
           format: "json",
           nojsoncallback: 1
         }
-      })
+      });
     }
   },
   created() {
     this.fetchImages().then(response => {
-      const photos = response.data.photoset.photo
-      this.images = photos
+      const photos = response.data.photoset.photo;
       photos.forEach(photo => {
-        this.srcList.push(photo.url_c)
+        this.images.unshift(photo);
+        this.srcList.unshift(photo.url_c);
         //NEED TO ORDER BY NEWEST PICTURE
         // console.log(new Date(photo.datetaken));
-      })
-    })
+      });
+    });
   }
-}
+};
 </script>
 
 <style>

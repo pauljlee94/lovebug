@@ -8,12 +8,8 @@
 
 <script>
 export default {
-  name: "404",
-  props: {
-    //data here
-  },
-  components: {}
-}
+  name: "404"
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

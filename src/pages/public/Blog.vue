@@ -7,9 +7,11 @@
         :key="blogpost.title"
         :style="{backgroundColor: blogpost.color}"
       >
-        <!-- {{changeColor()}} -->
-        <h2>{{blogpost.title}}</h2>
-        <p>{{blogpost.time}}</p>
+        <router-link :to="`/blog/${blogpost.id}`">
+          <!-- {{changeColor()}} -->
+          <h2>{{blogpost.title}}</h2>
+          <p>{{blogpost.time}}</p>
+        </router-link>
       </div>
     </masonry>
   </div>
@@ -62,7 +64,7 @@ export default {
         )}%,95%,0.7)`;
         data.id = blogPost.id;
         data.time = this.formatDate(data.time);
-        this.blogPosts.push(data);
+        this.blogPosts.unshift(data);
       });
     });
   }
@@ -81,16 +83,25 @@ export default {
   margin-bottom: 10px;
   /* background-color: hsl(503, 100%, 93%); */
 }
+.post a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+}
 .post h2 {
   font-family: "Solway", serif;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 20px;
   margin: 5px;
 }
 .post p {
   font-family: "Solway", serif;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 14px;
   margin: 5px;
+  color: rgb(61, 61, 61);
 }
 </style>
