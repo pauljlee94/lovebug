@@ -3,11 +3,11 @@
     <h1>Contact</h1>
     <div v-if="!scheduled">
       <form id="contactForm" @submit="updateData">
-        <label for="name">Name</label>
+        <label for="name">Name*</label>
         <el-input v-model="name" id="name" type="text" required />
-        <label for="email">Email</label>
+        <label for="email">Email*</label>
         <el-input v-model="email" id="email" type="text" required />
-        <label for="datpicker">Dates</label>
+        <label for="datpicker">Date*</label>
         <datepicker v-model="appointmentDate" id="datepicker" :disabled-dates="disabledDates" />
         <label for="name">Notes</label>
         <el-input v-model="notes" id="notes" type="textarea" required />
