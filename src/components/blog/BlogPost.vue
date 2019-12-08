@@ -20,8 +20,7 @@ export default {
       time: "",
       content: "",
       url:
-        "https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/blog/8EhVJYhpfOVY8dhsM57K" +
-        document.location.href
+        "https://www.facebook.com/sharer/sharer.php?u=" + document.location.href
     };
   },
   methods: {
