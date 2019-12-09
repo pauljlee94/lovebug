@@ -1,7 +1,6 @@
 <template>
   <div class="layout-default">
     <el-col id="mobile-nav" :span="12" v-if="mobile">
-      <!-- <a id="hamburger">test</a> -->
       <router-link to="/">
         <h1>
           Lovebug & Co.
@@ -9,6 +8,31 @@
           <span>photography</span>
         </h1>
       </router-link>
+      <Slide noOverlay width="300">
+        <router-link to="/">home</router-link>
+        <router-link to="/portfolio/love">love</router-link>
+        <router-link to="/portfolio/family">family</router-link>
+        <router-link to="/portfolio/portraits">portraits</router-link>
+        <router-link to="/about">about</router-link>
+        <router-link to="/contact">contact</router-link>
+        <div id="social">
+          <a
+            href="https://www.instagram.com/lovebugandco.photography/"
+            target="_blank"
+          >
+            <img alt="instagram" src="../assets/icons/instagram.svg" />
+          </a>
+          <a
+            href="https://www.facebook.com/heather.cunningham.967"
+            target="_blank"
+          >
+            <img alt="facebook" src="../assets/icons/facebook.svg" />
+          </a>
+          <a href="mailto:lovebugandco.photos@gmail.com" target="_blank">
+            <img alt="email " src="../assets/icons/mail.svg" />
+          </a>
+        </div>
+      </Slide>
     </el-col>
     <el-col v-else :span="12">
       <el-menu :router="true" id="default-nav" background-color="#00000000">
@@ -33,10 +57,16 @@
           <el-menu-item index="/contact">contact</el-menu-item>
         </div>
         <div id="social">
-          <a href="https://www.instagram.com/lovebugandco.photography/" target="_blank">
+          <a
+            href="https://www.instagram.com/lovebugandco.photography/"
+            target="_blank"
+          >
             <img alt="instagram" src="../assets/icons/instagram.svg" />
           </a>
-          <a href="https://www.facebook.com/heather.cunningham.967" target="_blank">
+          <a
+            href="https://www.facebook.com/heather.cunningham.967"
+            target="_blank"
+          >
             <img alt="facebook" src="../assets/icons/facebook.svg" />
           </a>
           <a href="mailto:lovebugandco.photos@gmail.com" target="_blank">
@@ -55,20 +85,25 @@
 </template>
 
 <script>
+import { Slide } from "vue-burger-menu"
+
 export default {
   name: "LayoutDefault",
   data() {
     return {
       mobile: true
-    };
+    }
+  },
+  components: {
+    Slide // Register your component
   },
   mounted() {
-    window.innerWidth <= 1000 ? (this.mobile = true) : (this.mobile = false);
+    window.innerWidth <= 1000 ? (this.mobile = true) : (this.mobile = false)
     window.onresize = () => {
-      window.innerWidth <= 1000 ? (this.mobile = true) : (this.mobile = false);
-    };
+      window.innerWidth <= 1000 ? (this.mobile = true) : (this.mobile = false)
+    }
   }
-};
+}
 </script>
 
 <style>
@@ -169,17 +204,24 @@ export default {
   right: 90px;
 }
 /* SOCIAL */
-#social {
+#default-nav #social {
   display: flex;
   margin: 50px auto 0 auto;
   width: 110px;
   justify-content: space-between;
 }
-#social img {
+#default-nav #social img {
   width: 20px;
 }
-#social a:hover {
-  opacity: 60%;
+
+#mobile-nav #social {
+  display: flex;
+  width: 110px;
+  justify-content: flex-start;
+}
+#mobile-nav #social img {
+  width: 20px;
+  margin-right: 20px;
 }
 #default-nav .el-menu-item:hover,
 #default-nav .el-submenu__title:hover {
@@ -192,5 +234,18 @@ export default {
 #menu .el-menu-item.is-active {
   text-decoration: underline;
   color: rgb(48, 49, 51);
+}
+
+.bm-burger-button {
+  margin-top: 20px;
+  width: 25px !important;
+  height: 20px !important;
+}
+.bm-menu {
+  background-color: white;
+}
+.bm-item-list a {
+  color: black;
+  font-family: "Solway", serif;
 }
 </style>

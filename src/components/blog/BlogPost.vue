@@ -109,6 +109,7 @@ export default {
 }
 #blogPost_content img {
   width: 100%;
+  margin-bottom: 20px;
 }
 #blogPost_content p {
   font-size: 17px;
