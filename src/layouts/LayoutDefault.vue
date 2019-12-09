@@ -1,6 +1,6 @@
 <template>
   <div class="layout-default">
-    <el-col id="mobile-nav" :span="12" v-if="mobile">
+    <div id="mobile-nav" :span="12" v-if="mobile">
       <router-link to="/">
         <h1>
           Lovebug & Co.
@@ -33,7 +33,7 @@
           </a>
         </div>
       </Slide>
-    </el-col>
+    </div>
     <el-col v-else :span="12">
       <el-menu :router="true" id="default-nav" background-color="#00000000">
         <div id="logo">
@@ -242,7 +242,7 @@ export default {
   height: 20px !important;
 }
 .bm-menu {
-  background-color: white;
+  background-color: rgb(241, 241, 241);
 }
 .bm-item-list a {
   color: black;
