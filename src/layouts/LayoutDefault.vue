@@ -237,7 +237,6 @@ export default {
 }
 
 .bm-burger-button {
-  margin-top: 20px;
   width: 25px !important;
   height: 20px !important;
 }
