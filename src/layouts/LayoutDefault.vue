@@ -241,11 +241,11 @@ export default {
   width: 25px !important;
   height: 20px !important;
 }
-.bm-menu {
-  background-color: rgb(241, 241, 241);
+#mobile-nav .bm-menu {
+  background-color: rgb(241, 241, 241) !important;
 }
-.bm-item-list a {
-  color: black;
+#mobile-nav .bm-item-list a {
+  color: black !important;
   font-family: "Solway", serif;
 }
 </style>
