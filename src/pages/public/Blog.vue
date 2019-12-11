@@ -5,12 +5,12 @@
         class="post"
         v-for="blogpost in blogPosts"
         :key="blogpost.title"
-        :style="{backgroundColor: blogpost.color}"
+        :style="{ backgroundColor: blogpost.color }"
       >
         <router-link :to="`/blog/${blogpost.id}`">
           <!-- {{changeColor()}} -->
-          <h2>{{blogpost.title}}</h2>
-          <p>{{blogpost.time}}</p>
+          <h2>{{ blogpost.title }}</h2>
+          <p>{{ blogpost.time }}</p>
         </router-link>
       </div>
     </masonry>
@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { db } from "../../main";
+import { db } from "../../main"
 
 export default {
   name: "PublicBlog",
@@ -28,12 +28,12 @@ export default {
   data() {
     return {
       blogPosts: []
-    };
+    }
   },
   computed: {},
   methods: {
     formatDate(rawDate) {
-      const dateObj = new Date(rawDate);
+      const dateObj = new Date(rawDate)
       const monthNames = [
         "January",
         "February",
@@ -47,28 +47,28 @@ export default {
         "October",
         "November",
         "December"
-      ];
-      const year = dateObj.getFullYear();
-      const month = dateObj.getMonth();
-      const date = dateObj.getDate();
-      return monthNames[month] + " " + date + ", " + year;
+      ]
+      const year = dateObj.getFullYear()
+      const month = dateObj.getMonth()
+      const date = dateObj.getDate()
+      return monthNames[month] + " " + date + ", " + year
     }
   },
   created() {
-    const postsRef = db.collection("blogPosts").orderBy("time");
+    const postsRef = db.collection("blogPosts").orderBy("time")
     postsRef.get().then(blogPosts => {
       blogPosts.forEach(blogPost => {
-        const data = blogPost.data();
+        const data = blogPost.data()
         data.color = `hsla(${Math.floor(Math.random() * 360)},${Math.floor(
           Math.random() * 75
-        )}%,95%,0.7)`;
-        data.id = blogPost.id;
-        data.time = this.formatDate(data.time);
-        this.blogPosts.unshift(data);
-      });
-    });
+        )}%,95%,0.7)`
+        data.id = blogPost.id
+        data.time = this.formatDate(data.time)
+        this.blogPosts.unshift(data)
+      })
+    })
   }
-};
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -81,6 +81,7 @@ export default {
   width: 100%;
   height: 300px !important;
   margin-bottom: 10px;
+  margin-left: 5px;
   /* background-color: hsl(503, 100%, 93%); */
 }
 .post a {
@@ -96,6 +97,9 @@ export default {
   font-weight: 400;
   font-size: 20px;
   margin: 5px;
+}
+.post h2:hover {
+  text-decoration: underline;
 }
 .post p {
   font-family: "Solway", serif;

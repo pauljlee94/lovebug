@@ -112,7 +112,11 @@ export default {
   margin-bottom: 20px;
 }
 #blogPost_content p {
+  font-family: "Solway", serif;
   font-size: 17px;
   margin: 0;
+}
+#blogPost_content {
+  /* margin-bottom: 30px; */
 }
 </style>

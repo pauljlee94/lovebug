@@ -13,19 +13,14 @@
         <router-link to="/portfolio/love">love</router-link>
         <router-link to="/portfolio/family">family</router-link>
         <router-link to="/portfolio/portraits">portraits</router-link>
+        <router-link to="/blog">blog</router-link>
         <router-link to="/about">about</router-link>
         <router-link to="/contact">contact</router-link>
         <div id="social">
-          <a
-            href="https://www.instagram.com/lovebugandco.photography/"
-            target="_blank"
-          >
+          <a href="https://www.instagram.com/lovebugandco.photography/" target="_blank">
             <img alt="instagram" src="../assets/icons/instagram.svg" />
           </a>
-          <a
-            href="https://www.facebook.com/heather.cunningham.967"
-            target="_blank"
-          >
+          <a href="https://www.facebook.com/heather.cunningham.967" target="_blank">
             <img alt="facebook" src="../assets/icons/facebook.svg" />
           </a>
           <a href="mailto:lovebugandco.photos@gmail.com" target="_blank">
@@ -57,16 +52,10 @@
           <el-menu-item index="/contact">contact</el-menu-item>
         </div>
         <div id="social">
-          <a
-            href="https://www.instagram.com/lovebugandco.photography/"
-            target="_blank"
-          >
+          <a href="https://www.instagram.com/lovebugandco.photography/" target="_blank">
             <img alt="instagram" src="../assets/icons/instagram.svg" />
           </a>
-          <a
-            href="https://www.facebook.com/heather.cunningham.967"
-            target="_blank"
-          >
+          <a href="https://www.facebook.com/heather.cunningham.967" target="_blank">
             <img alt="facebook" src="../assets/icons/facebook.svg" />
           </a>
           <a href="mailto:lovebugandco.photos@gmail.com" target="_blank">
@@ -85,25 +74,25 @@
 </template>
 
 <script>
-import { Slide } from "vue-burger-menu"
+import { Slide } from "vue-burger-menu";
 
 export default {
   name: "LayoutDefault",
   data() {
     return {
       mobile: true
-    }
+    };
   },
   components: {
     Slide // Register your component
   },
   mounted() {
-    window.innerWidth <= 1000 ? (this.mobile = true) : (this.mobile = false)
+    window.innerWidth <= 1000 ? (this.mobile = true) : (this.mobile = false);
     window.onresize = () => {
-      window.innerWidth <= 1000 ? (this.mobile = true) : (this.mobile = false)
-    }
+      window.innerWidth <= 1000 ? (this.mobile = true) : (this.mobile = false);
+    };
   }
-}
+};
 </script>
 
 <style>
@@ -111,6 +100,9 @@ export default {
 
 /* MOBILE */
 #mobile-nav {
+  display: flex;
+  justify-content: center;
+  margin: 0 !important;
   width: 100%;
   text-align: center;
   margin: 20px auto 10px auto;
@@ -140,7 +132,8 @@ export default {
 }
 /* DESKTOP MAIN */
 #default-main {
-  margin: 50px 20px 0 18.5%;
+  margin: 0 20px 0 18.5%;
+  padding-top: 50px;
 }
 /* BREAKPOINTS */
 @media screen and (min-width: 1345px) {
