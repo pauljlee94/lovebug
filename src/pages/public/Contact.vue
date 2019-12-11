@@ -3,15 +3,28 @@
     <h1>Contact</h1>
     <div v-if="!scheduled">
       <form id="contactForm" @submit="updateData">
-        <label for="name">Name*</label>
-        <el-input v-model="name" id="name" type="text" required />
-        <label for="email">Email*</label>
-        <el-input v-model="email" id="email" type="text" required />
-        <label for="datpicker">Date*</label>
-        <datepicker v-model="appointmentDate" id="datepicker" :disabled-dates="disabledDates" />
-        <label for="name">Notes</label>
-        <el-input v-model="notes" id="notes" type="textarea" required />
-        <button>Book Me!</button>
+        <el-input placeholder="name*" v-model="name" id="name" type="text" required />
+        <el-input placeholder="email*" v-model="email" id="email" type="text" required />
+        <datepicker
+          placeholder="What date's were you considering?"
+          id="datepicker"
+          :disabled-dates="disabledDates"
+        />
+        <el-input
+          placeholder="what locations are you considering?*"
+          v-model="notes"
+          id="notes"
+          type="textarea"
+          required
+        />
+        <el-input
+          placeholder="tell me a little about yourself!*"
+          v-model="notes"
+          id="notes"
+          type="textarea"
+          required
+        />
+        <el-button type="primary">Book Me!</el-button>
       </form>
     </div>
     <div v-else>
@@ -85,5 +98,27 @@ export default {
 }
 #contactForm {
   width: 500px;
+}
+#contactForm_container h1 {
+  font-family: "Solway", serif;
+}
+@media screen and (max-width: 1000px) {
+  #contactForm {
+    width: 98%;
+    margin: auto 0 auto 10px;
+  }
+  #contactForm .el-input {
+    margin-bottom: 30px;
+  }
+  #contactForm .vdp-datepicker {
+    margin-bottom: 30px;
+  }
+  #contactForm textarea {
+    margin-bottom: 30px;
+    height: 100px;
+  }
+  #contactForm button {
+    width: 98%;
+  }
 }
 </style>

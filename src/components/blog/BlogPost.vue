@@ -82,6 +82,16 @@ export default {
   margin: auto;
   width: 700px;
 }
+
+@media screen and (max-width: 1000px) {
+  #blogPost {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 10px 30px 10px;
+    width: 100%;
+  }
+}
 #blogPost h1 {
   margin-bottom: 0;
 }
