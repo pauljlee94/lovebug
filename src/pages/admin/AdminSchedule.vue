@@ -47,6 +47,14 @@
         <datepicker class="dialogDatpicker" v-model="dialogData.time" />
       </div>
       <div class="textarea_container">
+        <el-input
+          class="textarea"
+          v-model="dialogData.location"
+          placeholder="location"
+          type="textarea"
+        />
+      </div>
+      <div class="textarea_container">
         <el-input class="textarea" v-model="dialogData.notes" placeholder="notes" type="textarea" />
       </div>
       <el-button type="primary" @click="updateData(dialogData.id)">Update</el-button>
@@ -73,6 +81,7 @@ export default {
         name: "",
         email: "",
         time: 0,
+        location: "",
         notes: ""
       }
     };
@@ -93,6 +102,7 @@ export default {
         name: "",
         email: "",
         time: 0,
+        location: "",
         notes: ""
       };
       //reset appointments and highlighted data
@@ -142,6 +152,7 @@ export default {
         this.dialogData.name = data.name;
         this.dialogData.email = data.email;
         this.dialogData.time = data.time;
+        this.dialogData.location = data.location;
         this.dialogData.notes = data.notes;
       });
     },
@@ -201,7 +212,7 @@ export default {
 <style>
 #event-dialog {
   height: 100vh;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 #event-dialog .el-dialog {
   margin-top: 0 !important;
@@ -227,7 +238,6 @@ export default {
 .vdp-datepicker {
   border-radius: 4px;
   border: 1px solid #dcdfe6;
-
   margin-bottom: 20px;
 }
 .vdp-datepicker input {
@@ -241,10 +251,10 @@ export default {
   line-height: 40px;
 }
 .input_container {
-  height: 190px;
+  height: 180px;
 }
 .textarea_container {
-  height: 50%;
+  height: 25%;
 }
 .textarea {
   height: 100%;

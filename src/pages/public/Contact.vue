@@ -12,7 +12,7 @@
         />
         <el-input
           placeholder="what locations are you considering?*"
-          v-model="notes"
+          v-model="location"
           id="notes"
           type="textarea"
           required
@@ -24,11 +24,11 @@
           type="textarea"
           required
         />
-        <el-button type="primary">Book Me!</el-button>
+        <el-button type="primary" native-type="submit">Book Me!</el-button>
       </form>
     </div>
     <div v-else>
-      <h1>Booked!</h1>
+      <h2>Booked! I'll contact you via email soon!</h2>
     </div>
   </div>
 </template>
@@ -46,6 +46,7 @@ export default {
     return {
       name: "",
       email: "",
+      location: "",
       notes: "",
       scheduled: false,
       appointmentDate: new Date(),
@@ -72,7 +73,8 @@ export default {
           name: this.name,
           email: this.email,
           time: new Date(this.appointmentDate).getTime(),
-          notes: ""
+          location: this.location,
+          notes: this.notes
         })
         .then(() => {
           //console.log("scheduled!" + this.disabledDates.dates);
@@ -101,6 +103,7 @@ export default {
 }
 #contactForm_container h1 {
   font-family: "Solway", serif;
+  margin: 0 auto 30px auto;
 }
 @media screen and (max-width: 1000px) {
   #contactForm {
@@ -119,6 +122,7 @@ export default {
   }
   #contactForm button {
     width: 98%;
+    margin-bottom: 30px;
   }
 }
 </style>
