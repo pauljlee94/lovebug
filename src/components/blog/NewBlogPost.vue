@@ -6,6 +6,18 @@
         <el-input v-model="title" id="blog-title" type="text" placeholder="title" clearable />
       </el-row>
       <el-row class="row-m">
+        <el-upload
+          class="blog-upload"
+          ref="upload"
+          list-type="picture"
+          :on-change="stageImages"
+          :on-remove="stageImages"
+          :auto-upload="false"
+        >
+          <el-button type="primary">Click to upload picture</el-button>
+        </el-upload>
+      </el-row>
+      <el-row class="row-m">
         <vue-editor
           :editorToolbar="customToolbar"
           placeholder="content"
@@ -57,4 +69,11 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.blog-upload .el-upload {
+  width: 100%;
+}
+.blog-upload .el-upload .el-button {
+  width: 100%;
+}
+</style>
